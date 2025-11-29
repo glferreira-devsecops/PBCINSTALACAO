@@ -1,5 +1,3 @@
-
-
 // Define interfaces to be shared
 export interface Service { title: string; description: string; image: string; icon: string; }
 export interface Testimonial { name: string; role: string; text: string; photo: string; rating: number; }
@@ -34,25 +32,25 @@ export const services: Service[] = [
   {
     title: 'Instalação de Alta Performance',
     description: 'Split, Inverter e Multi-Split. Seguimos 100% das normas do fabricante para garantir a máxima eficiência e durabilidade.',
-    image: 'https://images.pexels.com/photos/7217996/pexels-photo-7217996.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    image: 'https://images.pexels.com/photos/713297/pexels-photo-713297.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     icon: 'M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.83-5.83M11.42 15.17l-4.24-4.24 5.83-5.83a2.652 2.652 0 00-3.75-3.75L1.67 11.42c-.99.99-.99 2.6 0 3.59l4.24 4.24c.99.99 2.6.99 3.59 0l1.9-1.9z'
   },
   {
     title: 'Manutenção e Higienização',
     description: 'Limpeza profunda que elimina 99.9% de ácaros, fungos e bactérias. Respire ar puro e aumente a vida útil do seu equipamento.',
-    image: 'https://images.pexels.com/photos/7245233/pexels-photo-7245233.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    image: 'https://images.pexels.com/photos/8962459/pexels-photo-8962459.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     icon: 'M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z'
   },
   {
-    title: 'Reparo de Emergência 24/7',
-    description: 'Seu ar parou? Chegamos em até 2h no Rio e Niterói. Diagnóstico rápido e solução imediata para seu conforto.',
-    image: 'https://images.pexels.com/photos/8472932/pexels-photo-8472932.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    title: 'Reparo Técnico Especializado',
+    description: 'Diagnóstico preciso e solução eficiente para falhas e problemas de performance. Restauramos seu conforto com agilidade.',
+    image: 'https://images.pexels.com/photos/8005396/pexels-photo-8005396.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     icon: 'M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z'
   }
 ];
 
 export const testimonials: Testimonial[] = [
-  { name: 'Dr. Roberto Lima', role: 'Clínica Odontológica • Leblon', text: 'A única empresa que conseguiu instalar 12 splits em 2 dias sem interromper nosso atendimento. O nível de organização e limpeza é surreal. São de outro planeta.', photo: 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&dpr=2', rating: 5 },
-  { name: 'Fernanda Costa', role: 'Síndica Cond. Vistamar • Niterói', text: 'Depois de anos trocando de empresa, finalmente encontramos a PBC. O laudo do PMOC é impecável e o atendimento é absurdamente rápido. Recomendo para todos os síndicos.', photo: 'https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&dpr=2', rating: 5 },
-  { name: 'Marcelo Borges', role: 'Dono de Loja • Recreio', text: 'Em pleno sábado de 40 graus, meu ar central parou. Achei que ia perder o dia de vendas. Liguei para a PBC e em menos de duas horas o técnico estava aqui e resolveu. Salvaram meu negócio!', photo: 'https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&dpr=2', rating: 5 }
+  { name: 'Dr. Roberto Lima', role: 'Clínica Odontológica • Leblon', text: 'A única empresa que conseguiu instalar 12 splits em 2 dias sem interromper nosso atendimento. O nível de organização e limpeza é surreal. São de outro planeta.', photo: 'https://images.pexels.com/photos/5215024/pexels-photo-5215024.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&dpr=2', rating: 5 },
+  { name: 'Fernanda Costa', role: 'Síndica Cond. Vistamar • Niterói', text: 'Depois de anos trocando de empresa, finalmente encontramos a PBC. O laudo do PMOC é impecável e o atendimento é absurdamente rápido. Recomendo para todos os síndicos.', photo: 'https://images.pexels.com/photos/3769021/pexels-photo-3769021.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&dpr=2', rating: 5 },
+  { name: 'Marcelo Borges', role: 'Dono de Loja • Recreio', text: 'Em pleno sábado de 40 graus, meu ar central parou. Achei que ia perder o dia de vendas. Liguei para a PBC e em menos de duas horas o técnico estava aqui e resolveu. Salvaram meu negócio!', photo: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&dpr=2', rating: 5 }
 ];
