@@ -14,13 +14,14 @@
 4.  [📈 Estratégia de SEO e Performance](#-estratégia-de-seo-e-performance)
 5.  [🔧 Guia de Customização Rápida](#-guia-de-customização-rápida)
 6.  [📂 Anatomia do Projeto](#-anatomia-do-projeto)
-7.  [🚀 Deploying to Vercel](#-deploying-to-vercel)
+7.  [💻 Desenvolvimento Local](#-desenvolvimento-local)
+8.  [🚀 Deploy na Vercel](#-deploy-na-vercel)
 
 ---
 
 ## 🎯 Visão Geral & Filosofia
 
-Este projeto é uma **ferramenta de conversão de alta performance** disfarçada de uma landing page. Desenvolvido para a **PBC Instalação RJ**, uma empresa de climatização no Rio de Janeiro, ele foi construído com as tecnologias web mais modernas para operar diretamente no navegador, sem etapas de compilação.
+Este projeto é uma **ferramenta de conversão de alta performance** disfarçada de uma landing page. Desenvolvido para a **PBC Instalação RJ**, uma empresa de climatização no Rio de Janeiro, ele foi construído com as tecnologias web mais modernas para garantir máxima performance e conversão.
 
 **Filosofia Central:** Cada linha de código e cada escolha de design serve a um propósito de negócio: **transformar visitantes em clientes pagantes**. A aplicação foi projetada para ser excepcionalmente rápida, confiável e persuasiva, eliminando qualquer atrito que possa impedir um cliente em potencial de entrar em contato.
 
@@ -35,7 +36,7 @@ A interface foi meticulosamente projetada para guiar o usuário por uma jornada 
 -   **Navegação Intuitiva (Scroll Spy)**: O menu de navegação destaca dinamicamente a seção visível, orientando o usuário de forma fluida.
 -   **Micro-interações de Alta Performance**: Animações sutis ativadas por rolagem, implementadas com a `IntersectionObserver` API para garantir zero impacto na performance.
 -   **CTAs de Conversão Rápida**: Botões de "Call to Action" posicionados estrategicamente, incluindo um CTA flutuante em dispositivos móveis, para direcionar o usuário ao WhatsApp e acelerar o pedido de orçamento.
--   **Mensagens de WhatsApp Pré-formatadas**: Links para WhatsApp (Normal e Emergência) com mensagens pré-preenchidas para eliminar qualquer atrito na comunicação inicial.
+-   **Mensagens de WhatsApp Pré-formatadas**: Links para WhatsApp com mensagens pré-preenchidas para eliminar qualquer atrito na comunicação inicial.
 -   **Barra de Confiança Imediata**: Uma seção dedicada logo abaixo da área principal para estabelecer credibilidade instantânea com propostas de valor chave ("+10 Anos de Mercado", "Técnicos Certificados").
 -   **SEO de Nível Profissional**: Implementação de SEO completa, incluindo meta tags, Open Graph, Twitter Cards, URL canônica e um schema `JSON-LD` para resultados de busca ricos (Rich Snippets) como `LocalBusiness`.
 
@@ -43,26 +44,21 @@ A interface foi meticulosamente projetada para guiar o usuário por uma jornada 
 
 ## 🛠️ Arquitetura de Ponta: Um Mergulho Técnico Profundo
 
-Este projeto utiliza uma stack frontend serverless e de ponta, focada em performance, resiliência e na melhor experiência de desenvolvimento possível.
+Este projeto utiliza uma stack frontend de ponta, focada em performance, resiliência e na melhor experiência de desenvolvimento possível, compilada com o Angular CLI.
 
-| Componente      | Tecnologia                                                                                                 | Justificativa                                                                                                  |
-| --------------- | ---------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
-| **Framework**   | [**Angular v18+**](https://angular.dev/)                                                                   | Robustez, performance e ecossistema maduro para aplicações complexas.                                          |
-| **Arquitetura** | **Componentes Standalone & Zoneless**                                                                      | Elimina `NgModules` e `Zone.js`, resultando em um bundle menor, inicialização mais rápida e controle granular. |
-| **Estado**      | [**Angular Signals**](https://angular.dev/guide/signals)                                                   | Gerenciamento de estado reativo, declarativo e altamente eficiente, garantindo renderizações mínimas.          |
-| **Estilização** | [**Tailwind CSS v3**](https://tailwindcss.com/)                                                            | Framework utility-first que permite o desenvolvimento rápido de interfaces complexas via CDN.                  |
-| **Imagens**     | [**NgOptimizedImage**](https://angular.dev/guide/image-optimization)                                       | Otimização automática de imagens para performance superior (Core Web Vitals).                                  |
-| **Deployment**  | **Zero-Build, CDN-First**                                                                                  | Opera diretamente do `index.html` via `importmap`, sem `node_modules` ou processos de build.                   |
+| Componente      | Tecnologia                                                                                                 | Justificativa                                                                                                        |
+| --------------- | ---------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| **Framework**   | [**Angular v18+**](https://angular.dev/)                                                                   | Robustez, performance e ecossistema maduro para aplicações complexas.                                                |
+| **Arquitetura** | **Componentes Standalone**                                                                                 | Elimina `NgModules`, resultando em um bundle menor, inicialização mais rápida e componentização simplificada.        |
+| **Estado**      | [**Angular Signals**](https://angular.dev/guide/signals)                                                   | Gerenciamento de estado reativo, declarativo e altamente eficiente, garantindo renderizações mínimas.                |
+| **Estilização** | [**Tailwind CSS v3**](https://tailwindcss.com/)                                                            | Framework utility-first que permite o desenvolvimento rápido de interfaces complexas via CDN.                        |
+| **Imagens**     | [**NgOptimizedImage**](https://angular.dev/guide/image-optimization)                                       | Otimização automática de imagens para performance superior (Core Web Vitals).                                        |
+| **Deployment**  | **Build Otimizado para Produção**                                                                          | O Angular CLI compila e otimiza a aplicação, gerando arquivos estáticos para deploy em qualquer CDN (ex: Vercel). |
 
-### 1. O Paradigma Zero-Build
+### 1. Arquitetura Moderna com Componentes Standalone
+A aplicação adota a arquitetura de **Componentes Standalone**, o padrão moderno do Angular. Isso elimina a complexidade dos `NgModules`, simplifica a estrutura do projeto e facilita o lazy-loading de componentes, melhorando a performance inicial. Cada peça da UI é um componente auto-contido e mais fácil de manter.
 
-Esta arquitetura elimina a necessidade de qualquer ferramenta de build. O `index.html` é o coração do projeto, definindo um **`importmap`** que instrui o navegador sobre como resolver os imports de pacotes em tempo de execução e contendo a lógica de inicialização da aplicação.
-
-### 2. Angular Zoneless & Standalone
-
-A aplicação é inicializada com `provideZoneChangeDetection({ eventCoalescing: true })`, ativando o modo **Zoneless**. Nesse modo, o Angular não depende mais do `Zone.js` para detectar mudanças, resultando em uma melhoria de performance notável e forçando um padrão de código mais explícito e controlado.
-
-### 3. Estado Reativo com Signals
+### 2. Estado Reativo com Signals
 
 O estado do `AppComponent` é gerenciado exclusivamente com Signals. Uma única fonte de verdade para o template, `data()`, é criada a partir de múltiplos signals de estado (`isScrolled`, `isMenuOpen`, etc.) usando `computed`. Este padrão garante que o DOM seja atualizado da forma mais eficiente possível.
 
@@ -81,7 +77,7 @@ export class AppComponent {
 }
 ```
 
-### 4. Otimização de Imagens com `NgOptimizedImage`
+### 3. Otimização de Imagens com `NgOptimizedImage`
 
 Todas as tags `<img>` foram substituídas pela diretiva `NgOptimizedImage` (`[ngSrc]`). Isso ativa um conjunto de otimizações automáticas:
 -   **Lazy Loading**: Imagens fora da tela não são carregadas até que o usuário role até elas.
@@ -93,7 +89,7 @@ Todas as tags `<img>` foram substituídas pela diretiva `NgOptimizedImage` (`[ng
 <img ngSrc="..." width="..." height="..." priority>
 ```
 
-### 5. Animações Performáticas (`IntersectionObserver`)
+### 4. Animações Performáticas (`IntersectionObserver`)
 
 A diretiva `src/animate-on-scroll.directive.ts` utiliza a API nativa `IntersectionObserver` do navegador. Isso é infinitamente mais performático do que escutar eventos de `scroll`, pois delega a detecção de visibilidade ao navegador, mantendo a thread principal da aplicação livre.
 
@@ -102,7 +98,7 @@ A diretiva `src/animate-on-scroll.directive.ts` utiliza a API nativa `Intersecti
 ## 📈 Estratégia de SEO e Performance
 
 A performance não é um recurso, é a base.
--   **Core Web Vitals Otimizados**: O uso de `NgOptimizedImage` e a arquitetura Zoneless contribuem para notas excelentes em LCP, CLS e INP.
+-   **Core Web Vitals Otimizados**: O uso de `NgOptimizedImage` e uma arquitetura moderna contribuem para notas excelentes em LCP, CLS e INP.
 -   **Schema `JSON-LD` para Rich Snippets**: O `index.html` contém um script `JSON-LD` detalhado do tipo `LocalBusiness`. Isso permite que o Google exiba informações ricas nos resultados de busca (horário, área de serviço, telefone), aumentando a visibilidade e a taxa de cliques.
 -   **Meta Tags Completas**: Tags `title`, `description`, `canonical`, Open Graph e Twitter Cards garantem uma apresentação perfeita em redes sociais e mecanismos de busca.
 
@@ -134,7 +130,7 @@ Adicione ou modifique objetos no array `services`. As imagens são de `pexels.co
 
 ```typescript
 // src/app.data.ts
-export const services = signal<Service[]>([
+export const services: Service[] = [
   {
     title: 'Novo Serviço',
     description: 'Descrição do seu novo serviço.',
@@ -142,7 +138,7 @@ export const services = signal<Service[]>([
     icon: '...' // SVG path de heroicons.com
   },
   // ... outros serviços
-]);
+];
 ```
 
 #### 3. Depoimentos
@@ -151,7 +147,7 @@ Adicione ou modifique objetos no array `testimonials`.
 
 ```typescript
 // src/app.data.ts
-export const testimonials = signal<Testimonial[]>([
+export const testimonials: Testimonial[] = [
   { 
     name: 'Nome do Cliente', 
     role: 'Cargo ou Localização', 
@@ -160,7 +156,7 @@ export const testimonials = signal<Testimonial[]>([
     rating: 5 
   },
   // ... outros depoimentos
-]);
+];
 ```
 
 #### 4. Tema de Cores
@@ -187,22 +183,51 @@ As cores principais podem ser alteradas diretamente no `tailwind.config` dentro 
 
 ## 📂 Anatomia do Projeto
 
+A estrutura do projeto é organizada para ser limpa e manutenível, seguindo as melhores práticas do Angular CLI.
+
 ```
 .
-├── index.html                 # Ponto de entrada, SEO, CDNs, importmap e lógica de bootstrap
-├── vercel.json                # Configuração para Vercel (SPA mode)
-├── metadata.json              # Metadados do projeto
-├── README.md                  # Este documento detalhado
+├── angular.json               # Configuração do workspace e projetos Angular CLI
+├── package.json               # Dependências do projeto e scripts (build, serve)
+├── tsconfig.json              # Configuração base do TypeScript
+├── vercel.json                # Configuração para deploy na Vercel (modo SPA)
+├── index.html                 # Ponto de entrada da aplicação, SEO e configuração do Tailwind
 └── src
-    ├── app.component.ts       # O único componente raiz, focado na lógica de visualização e estado
-    ├── app.data.ts            # Centraliza todos os dados estáticos da aplicação (conteúdo)
-    ├── app.component.html     # Vazio, pois o template é inline para máxima performance em Zero-Build
-    └── animate-on-scroll.directive.ts # Diretiva reutilizável para animações de rolagem
+    ├── assets/                # Pasta para imagens e outros assets estáticos
+    ├── main.ts                # Arquivo que inicializa (bootstrap) a aplicação Angular
+    ├── styles.css             # Estilos globais (usado minimamente, preferência por Tailwind)
+    ├── app.component.ts       # O único componente raiz, com template inline, lógica e estado
+    ├── app.data.ts            # Centraliza todos os dados estáticos (conteúdo) da aplicação
+    └── animate-on-scroll.directive.ts # Diretiva para animações baseada em IntersectionObserver
 ```
 
 ---
 
-## 🚀 Deploying to Vercel
+## 💻 Desenvolvimento Local
+
+Para executar o projeto em sua máquina local, siga estes passos:
+
+1.  **Pré-requisitos:** Certifique-se de ter o [Node.js](https://nodejs.org/) (versão 20.x ou superior) e o [Angular CLI](https://angular.io/cli) instalados globalmente.
+2.  **Clone o Repositório:**
+    ```bash
+    git clone https://github.com/seu-usuario/pbc-instalacao-rj.git
+    cd pbc-instalacao-rj
+    ```
+3.  **Instale as Dependências:**
+    ```bash
+    npm install
+    ```
+4.  **Inicie o Servidor de Desenvolvimento:**
+    ```bash
+    npm start
+    ```
+    Este comando irá compilar a aplicação e iniciá-la em modo de desenvolvimento com hot-reload.
+5.  **Acesse no Navegador:**
+    Abra seu navegador e acesse `http://localhost:4200/`. A aplicação será recarregada automaticamente se você alterar qualquer um dos arquivos de origem.
+
+---
+
+## 🚀 Deploy na Vercel
 
 Publicar este projeto na Vercel é um processo de "push-to-deploy" extremamente simples.
 
@@ -212,7 +237,11 @@ Publicar este projeto na Vercel é um processo de "push-to-deploy" extremamente 
     *   Clique em "Add New..." -> "Project".
     *   Importe o repositório do GitHub que você acabou de criar.
 3.  **Configure e Faça o Deploy:**
-    *   A Vercel irá detectar o projeto como **"Static Site"**. Nenhuma configuração adicional é necessária.
+    *   A Vercel irá detectar automaticamente que é um projeto **Angular**.
+    *   Nas configurações de Build & Development, assegure-se de que os seguintes comandos estão definidos (geralmente são o padrão para Angular):
+        *   **Build Command**: `ng build`
+        *   **Output Directory**: `dist/pbc-instalacao`
+        *   **Install Command**: `npm install`
     *   Clique em **"Deploy"**.
 
-É isso! A Vercel irá publicar seus arquivos estáticos diretamente. Sua aplicação estará online em segundos. A Vercel irá automaticamente re-deployar o site a cada novo push para o seu repositório.
+É isso! A Vercel irá compilar e publicar sua aplicação. Sua aplicação estará online em segundos e será atualizada automaticamente a cada novo push para o seu repositório.

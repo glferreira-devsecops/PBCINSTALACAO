@@ -113,7 +113,7 @@ import * as AppData from './app.data';
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center py-8">
         @for (signal of vm.trustSignals; track signal.text) {
-          <div class="flex flex-col sm:flex-row items-center justify-center gap-3 text-gray-600">
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-3 text-gray-600" appAnimateOnScroll>
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-primary">
               <path stroke-linecap="round" stroke-linejoin="round" [attr.d]="signal.icon" />
             </svg>
@@ -156,7 +156,7 @@ import * as AppData from './app.data';
   <section id="about" class="py-24 lg:py-32 bg-light">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid lg:grid-cols-2 gap-16 items-center">
-        <div class="order-2 lg:order-1">
+        <div class="order-2 lg:order-1" appAnimateOnScroll>
           <h2 class="text-4xl lg:text-5xl font-black text-primary">Nossa Missão: Sua Tranquilidade</h2>
           <p class="mt-6 text-lg text-gray-600 leading-relaxed">{{ vm.company.about }}</p>
           <ul class="mt-8 space-y-4 text-lg">
@@ -168,7 +168,7 @@ import * as AppData from './app.data';
             Fale com um Especialista
           </a>
         </div>
-        <div class="order-1 lg:order-2">
+        <div class="order-1 lg:order-2" appAnimateOnScroll>
           <img ngSrc="assets/images/arcond4.jpg" alt="Técnico da PBC Instalação RJ" class="rounded-xl shadow-2xl w-full" width="1260" height="750" priority>
         </div>
       </div>
@@ -218,7 +218,7 @@ import * as AppData from './app.data';
   </section>
 
   <!-- FINAL CTA -->
-  <section class="py-24 cta-bg text-white">
+  <section class="py-24 cta-bg text-white" appAnimateOnScroll>
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h2 class="text-4xl lg:text-5xl font-black">Pronto para ter o melhor clima?</h2>
         <p class="mt-4 text-xl opacity-90 max-w-2xl mx-auto">Fale com um especialista agora e receba seu orçamento gratuito em 5 minutos.</p>
@@ -229,7 +229,7 @@ import * as AppData from './app.data';
   </section>
 
   <!-- FOOTER -->
-  <footer id="footer" class="bg-dark text-white pt-20 pb-8">
+  <footer id="footer" class="bg-dark text-white pt-20 pb-8" appAnimateOnScroll>
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 text-center md:text-left">
         <div class="lg:col-span-2">
