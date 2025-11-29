@@ -55,21 +55,40 @@ import * as AppData from './app.data';
 
 <!-- Mobile Menu -->
 <div (click)="toggleMenu()" [class.opacity-100]="vm.isMenuOpen" [class.pointer-events-auto]="vm.isMenuOpen"
-     class="fixed inset-0 bg-dark/70 backdrop-blur-sm z-40 opacity-0 pointer-events-none transition-opacity duration-300 lg:hidden"></div>
+     class="fixed inset-0 bg-dark/70 backdrop-blur-sm z-40 opacity-0 pointer-events-none transition-opacity duration-500 lg:hidden"></div>
 <nav id="mobile-menu-panel" [class.translate-x-0]="vm.isMenuOpen" [class.translate-x-full]="!vm.isMenuOpen"
-     class="fixed top-0 right-0 h-full w-full max-w-sm bg-white shadow-2xl z-40 transition-transform duration-300 ease-in-out">
-  <div class="flex flex-col h-full p-8 pt-24">
-    <ul class="space-y-6 text-2xl font-semibold text-center">
+     class="fixed top-0 right-0 h-full w-full max-w-xs bg-white shadow-2xl z-40 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]">
+  
+  <!-- Menu Header -->
+  <div class="flex items-center justify-between p-4 border-b border-gray-200">
+    <span class="text-2xl font-black tracking-tighter">
+      <span class="text-primary">PBC</span><span class="text-accent">RJ</span>
+    </span>
+    <button (click)="toggleMenu()" class="p-2 -mr-2 rounded-full text-gray-500 hover:bg-gray-100 hover:text-dark transition-colors" aria-label="Close menu">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+    </button>
+  </div>
+
+  <!-- Menu Body -->
+  <div class="flex flex-col h-[calc(100%-65px)] p-4">
+    <ul class="space-y-2 py-4">
       @for (s of vm.sections; track s.id) {
         <li>
-          <button (click)="scrollTo(s.id)" class="block w-full py-2 hover:text-accent transition-colors duration-200">
-            {{ s.label }}
+          <button (click)="scrollTo(s.id)"
+                  [class.bg-primary/10]="vm.activeSection === s.id"
+                  [class.text-primary]="vm.activeSection === s.id"
+                  [class.font-bold]="vm.activeSection === s.id"
+                  class="flex items-center justify-between w-full text-left text-lg font-medium p-4 rounded-lg hover:bg-gray-100 transition-colors duration-200">
+            <span>{{ s.label }}</span>
+            <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
           </button>
         </li>
       }
     </ul>
-    <a [href]="vm.whatsapp.normal" target="_blank" class="mt-auto w-full bg-accent text-dark text-center py-4 rounded-lg font-bold text-xl hover:bg-accent-dark transition-colors duration-200">
-      WhatsApp Agora
+    <a [href]="vm.whatsapp.normal" target="_blank"
+       class="mt-auto w-full bg-accent text-dark text-center py-4 rounded-lg font-bold text-lg hover:bg-accent-dark transition-colors duration-200 flex items-center justify-center gap-2">
+      <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.894 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.886-.001 2.269.655 4.398 1.919 6.121l-1.161 4.225 4.273-1.119z"/></svg>
+      Solicitar Orçamento
     </a>
   </div>
 </nav>
@@ -228,7 +247,7 @@ import * as AppData from './app.data';
         <div>
           <h4 class="font-bold text-lg mb-4 text-white">Contato</h4>
           <ul class="space-y-3 text-gray-400">
-            <li><a [href]="'tel:' + vm.company.phone" class="hover:text-accent transition-colors">{{ vm.company.phone }}</a></li>
+            <li><a [href]="'tel:+' + vm.company.whatsapp" class="hover:text-accent transition-colors">{{ vm.company.phone }}</a></li>
             <li><a [href]="'mailto:' + vm.company.email" class="hover:text-accent transition-colors">{{ vm.company.email }}</a></li>
             <li class="font-bold text-white mt-2">Seg à Sex: 8h - 18h</li>
           </ul>
@@ -237,7 +256,7 @@ import * as AppData from './app.data';
       <div class="mt-16 border-t border-gray-800 pt-8 text-center text-gray-500">
         <p>&copy; {{vm.currentYear}} PBC Instalação RJ. Todos os direitos reservados.</p>
         <p class="mt-4 text-sm">
-          Desenvolvido com <span class="text-red-500 transition-transform hover:scale-125 inline-block">❤</span> por 
+          Desenvolvido com <span class="text-accent transition-transform hover:scale-125 inline-block">❤</span> por 
           <a href="https://www.linkedin.com/in/devferreirag" target="_blank" rel="noopener noreferrer" class="font-semibold text-gray-400 hover:text-accent transition-colors duration-200">
             Gabriel Ferreira
           </a>
@@ -273,7 +292,7 @@ export class AppComponent {
   readonly currentYear = new Date().getFullYear();
 
   readonly headerClasses = computed(() => this.isScrolled()
-    ? 'bg-white/95 backdrop-blur-md text-dark'
+    ? 'bg-white/95 backdrop-blur-md text-dark shadow-lg'
     : 'bg-transparent text-white'
   );
   
