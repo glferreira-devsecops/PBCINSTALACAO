@@ -258,7 +258,7 @@ import * as AppData from './app.data';
         <p class="mt-4 text-sm">
           Desenvolvido com <span class="text-accent transition-transform hover:scale-125 inline-block">❤</span> por 
           <a href="https://www.linkedin.com/in/devferreirag" target="_blank" rel="noopener noreferrer" class="font-semibold text-gray-400 hover:text-accent transition-colors duration-200">
-            Gabriel Ferreira
+            Gabriel Ferreira <span class="mx-1 text-gray-600">|</span> <span class="font-normal text-gray-500">Founder @ RET TECNOLOGIA</span>
           </a>
         </p>
       </div>
