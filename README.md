@@ -56,7 +56,7 @@ Este projeto utiliza uma stack frontend serverless e de ponta, focada em perform
 
 ### 1. O Paradigma Zero-Build
 
-Esta arquitetura elimina a necessidade de qualquer ferramenta de build. O `index.html` é o coração do projeto, definindo um **`importmap`** que instrui o navegador sobre como resolver os imports de pacotes em tempo de execução e, agora, contendo a lógica de inicialização da aplicação.
+Esta arquitetura elimina a necessidade de qualquer ferramenta de build. O `index.html` é o coração do projeto, definindo um **`importmap`** que instrui o navegador sobre como resolver os imports de pacotes em tempo de execução e contendo a lógica de inicialização da aplicação.
 
 ### 2. Angular Zoneless & Standalone
 
@@ -190,7 +190,7 @@ As cores principais podem ser alteradas diretamente no `tailwind.config` dentro 
 ```
 .
 ├── index.html                 # Ponto de entrada, SEO, CDNs, importmap e lógica de bootstrap
-├── vercel.json                # Configuração de deploy para a Vercel (SPA mode)
+├── vercel.json                # Configuração para Vercel (SPA mode e anulação de build)
 ├── metadata.json              # Metadados do projeto
 ├── README.md                  # Este documento detalhado
 └── src
@@ -203,7 +203,7 @@ As cores principais podem ser alteradas diretamente no `tailwind.config` dentro 
 
 ## 🚀 Deploying to Vercel
 
-Publicar este projeto na Vercel é um processo de "push-to-deploy" extremamente simples.
+Publicar este projeto na Vercel é um processo de "push-to-deploy" extremamente simples, graças à configuração `vercel.json`.
 
 1.  **Crie um Repositório no GitHub:** Se ainda não o fez, crie um repositório no GitHub e envie os arquivos do projeto para ele.
 2.  **Importe o Projeto na Vercel:**
@@ -211,8 +211,7 @@ Publicar este projeto na Vercel é um processo de "push-to-deploy" extremamente 
     *   Clique em "Add New..." -> "Project".
     *   Importe o repositório do GitHub que você acabou de criar.
 3.  **Configure e Faça o Deploy:**
-    *   A Vercel irá detectar automaticamente que é um projeto estático.
-    *   **Nenhuma configuração de build é necessária.** Você pode deixar os campos "Build & Development Settings" vazios.
+    *   **Importante:** A Vercel irá detectar que não há um framework conhecido e pode mostrar configurações de build. Graças ao `vercel.json`, você pode ignorar isso. As configurações no arquivo anularão qualquer configuração da UI.
     *   Clique em **"Deploy"**.
 
-É isso! Sua aplicação estará online em segundos. A Vercel irá automaticamente re-deployar o site a cada novo push para o seu repositório.
+É isso! A Vercel irá pular as etapas de instalação e build, publicando seus arquivos estáticos diretamente. Sua aplicação estará online em segundos. A Vercel irá automaticamente re-deployar o site a cada novo push para o seu repositório.
