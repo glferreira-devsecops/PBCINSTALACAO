@@ -171,7 +171,7 @@ import * as AppData from './app.data';
           <div class="bg-light p-8 rounded-xl shadow-lg flex flex-col transition-transform duration-300 hover:-translate-y-2" appAnimateOnScroll>
             <div class="flex-grow">
               <div class="flex text-yellow-400 mb-4">
-                @for (star of getStarArray(t.rating); track $index) {
+                @for (star of t.starArray; track $index) {
                   <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
                 }
               </div>
@@ -251,7 +251,10 @@ export class AppComponent {
   readonly sections = AppData.sections;
   readonly trustSignals = AppData.trustSignals;
   readonly services = AppData.services;
-  readonly testimonials = AppData.testimonials;
+  readonly testimonials = AppData.testimonials.map(testimonial => ({
+    ...testimonial,
+    starArray: Array(testimonial.rating).fill(0)
+  }));
 
   readonly currentYear = new Date().getFullYear();
 
@@ -302,10 +305,6 @@ export class AppComponent {
     this.isMenuOpen.update(v => !v);
   }
 
-  getStarArray(rating: number): void[] {
-    return Array(rating).fill(0);
-  }
-
   readonly data = computed(() => ({
     isScrolled: this.isScrolled(),
     isMenuOpen: this.isMenuOpen(),
@@ -316,9 +315,9 @@ export class AppComponent {
         emergency: this.whatsapp.emergency()
     },
     sections: this.sections,
-    trustSignals: this.trustSignals(),
-    services: this.services(),
-    testimonials: this.testimonials(),
+    trustSignals: this.trustSignals,
+    services: this.services,
+    testimonials: this.testimonials,
     company: this.company,
     currentYear: this.currentYear,
   }));

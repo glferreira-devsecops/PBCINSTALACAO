@@ -110,22 +110,22 @@ A performance não é um recurso, é a base.
 
 ## 🔧 Guia de Customização Rápida
 
-Para personalizar a aplicação, edite o arquivo `src/app.component.ts`.
+Para personalizar a aplicação, edite o arquivo `src/app.data.ts`.
 
 #### 1. Informações da Empresa e Contato
 
 Modifique o objeto `company` para atualizar telefone, e-mail, WhatsApp e textos.
 
 ```typescript
-// src/app.component.ts
-readonly company = {
+// src/app.data.ts
+export const company = {
   name: 'SUA EMPRESA',
   phone: '(XX) XXXXX-XXXX',
   whatsapp: '55XX9XXXXXXXX',
   email: 'contato@suaempresa.com.br',
   coverage: 'Sua área de cobertura.',
   about: 'Um texto sobre sua empresa.'
-} as const;
+};
 ```
 
 #### 2. Serviços
@@ -133,8 +133,8 @@ readonly company = {
 Adicione ou modifique objetos no array `services`. As imagens são de `pexels.com`.
 
 ```typescript
-// src/app.component.ts
-readonly services = signal<Service[]>([
+// src/app.data.ts
+export const services = signal<Service[]>([
   {
     title: 'Novo Serviço',
     description: 'Descrição do seu novo serviço.',
@@ -150,8 +150,8 @@ readonly services = signal<Service[]>([
 Adicione ou modifique objetos no array `testimonials`.
 
 ```typescript
-// src/app.component.ts
-readonly testimonials = signal<Testimonial[]>([
+// src/app.data.ts
+export const testimonials = signal<Testimonial[]>([
   { 
     name: 'Nome do Cliente', 
     role: 'Cargo ou Localização', 
@@ -194,7 +194,8 @@ As cores principais podem ser alteradas diretamente no `tailwind.config` dentro 
 ├── metadata.json              # Metadados do projeto
 ├── README.md                  # Este documento detalhado
 └── src
-    ├── app.component.ts       # O único componente raiz, contendo toda a lógica (TS) e o template (HTML)
+    ├── app.component.ts       # O único componente raiz, focado na lógica de visualização e estado
+    ├── app.data.ts            # Centraliza todos os dados estáticos da aplicação (conteúdo)
     ├── app.component.html     # Vazio, pois o template é inline para máxima performance em Zero-Build
     └── animate-on-scroll.directive.ts # Diretiva reutilizável para animações de rolagem
 ```
