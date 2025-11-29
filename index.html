@@ -121,25 +121,17 @@
 <script type="importmap">
 {
   "imports": {
-    "@angular/core": "https://aistudiocdn.com/@angular/core@^18.0.0/fesm2022/core.mjs",
-    "@angular/common": "https://aistudiocdn.com/@angular/common@^18.0.0/fesm2022/common.mjs",
-    "@angular/platform-browser": "https://aistudiocdn.com/@angular/platform-browser@^18.0.0/fesm2022/platform-browser.mjs"
+    "rxjs": "https://aistudiocdn.com/rxjs@^7.8.2?conditions=es2015",
+    "rxjs/operators": "https://aistudiocdn.com/rxjs@^7.8.2/operators?conditions=es2015",
+    "rxjs/ajax": "https://aistudiocdn.com/rxjs@^7.8.2/ajax?conditions=es2015",
+    "rxjs/webSocket": "https://aistudiocdn.com/rxjs@^7.8.2/webSocket?conditions=es2015",
+    "rxjs/testing": "https://aistudiocdn.com/rxjs@^7.8.2/testing?conditions=es2015",
+    "rxjs/fetch": "https://aistudiocdn.com/rxjs@^7.8.2/fetch?conditions=es2015",
+    "@angular/common": "https://next.esm.sh/@angular/common@^21.0.1?external=rxjs",
+    "@angular/core": "https://next.esm.sh/@angular/core@^21.0.1?external=rxjs",
+    "@angular/platform-browser": "https://next.esm.sh/@angular/platform-browser@^21.0.1?external=rxjs"
   }
 }
-</script>
-<script type="module">
-  import { bootstrapApplication } from '@angular/platform-browser';
-  import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
-  import { AppComponent } from './src/app.component.ts';
-
-  const appConfig = {
-    providers: [
-      provideZoneChangeDetection({ eventCoalescing: true }),
-    ],
-  };
-
-  bootstrapApplication(AppComponent, appConfig)
-    .catch((err) => console.error('Application bootstrap failed:', err));
 </script>
 </head>
 <body class="bg-light text-dark antialiased">
