@@ -32,19 +32,19 @@ export const services: Service[] = [
   {
     title: 'Instalação de Alta Performance',
     description: 'Split, Inverter e Multi-Split. Seguimos 100% das normas do fabricante para garantir a máxima eficiência e durabilidade.',
-    image: 'https://images.pexels.com/photos/8005396/pexels-photo-8005396.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    image: 'https://images.pexels.com/photos/8005404/pexels-photo-8005404.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     icon: 'M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.83-5.83M11.42 15.17l-4.24-4.24 5.83-5.83a2.652 2.652 0 00-3.75-3.75L1.67 11.42c-.99.99-.99 2.6 0 3.59l4.24 4.24c.99.99 2.6.99 3.59 0l1.9-1.9z'
   },
   {
     title: 'Manutenção e Higienização',
     description: 'Limpeza profunda que elimina 99.9% de ácaros, fungos e bactérias. Respire ar puro e aumente a vida útil do seu equipamento.',
-    image: 'https://images.pexels.com/photos/7245472/pexels-photo-7245472.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    image: 'https://images.pexels.com/photos/8348736/pexels-photo-8348736.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     icon: 'M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z'
   },
   {
     title: 'Reparo Técnico Especializado',
     description: 'Diagnóstico preciso e solução eficiente para falhas e problemas de performance. Restauramos seu conforto com agilidade.',
-    image: 'https://images.pexels.com/photos/8005368/pexels-photo-8005368.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    image: 'https://images.pexels.com/photos/8991474/pexels-photo-8991474.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     icon: 'M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z'
   }
 ];
@@ -56,7 +56,7 @@ export const testimonials: Testimonial[] = [
     name: 'Gabriel Ferreira', 
     role: 'FOUNDER at RET TECNOLOGIA', 
     text: 'Como desenvolvedor, sou exigente com detalhes técnicos. A equipe não só resolveu o problema de gás e fez uma limpeza completa, como deixaram o ar condicionado \'nevando\' de tão forte. Serviço impecável.', 
-    photo: 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&dpr=2', 
+    photo: 'https://images.pexels.com/photos/532220/pexels-photo-532220.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&dpr=2', 
     rating: 5,
     linkedin: 'https://www.linkedin.com/in/devferreirag'
   }
