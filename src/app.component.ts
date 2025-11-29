@@ -1,13 +1,8 @@
 
-
-import { Component, signal, computed, ChangeDetectionStrategy, ViewChild, ElementRef, effect } from '@angular/core';
+import { Component, signal, computed, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { AnimateOnScrollDirective } from './animate-on-scroll.directive';
-
-interface Service { title: string; description: string; image: string; icon: string; }
-interface Testimonial { name: string; role: string; text: string; photo: string; rating: number; }
-interface Section { id: string; label: string; }
-interface TrustSignal { icon: string; text: string; }
+import * as AppData from './app.data';
 
 @Component({
   selector: 'app-root',
@@ -48,7 +43,7 @@ interface TrustSignal { icon: string; text: string; }
       </a>
 
       <!-- Mobile Nav Toggle -->
-      <button (click)="toggleMenu()" class="lg:hidden z-50" aria-label="Toggle menu">
+      <button (click)="toggleMenu()" class="lg:hidden z-50" aria-label="Toggle menu" [attr.aria-expanded]="vm.isMenuOpen" aria-controls="mobile-menu-panel">
         <div class="space-y-2">
             <span class="block h-0.5 w-8 bg-current transition-transform duration-300" [class.rotate-45]="vm.isMenuOpen" [class.translate-y-2.5]="vm.isMenuOpen"></span>
             <span class="block h-0.5 w-8 bg-current transition-opacity duration-300" [class.opacity-0]="vm.isMenuOpen"></span>
@@ -62,7 +57,7 @@ interface TrustSignal { icon: string; text: string; }
 <!-- Mobile Menu -->
 <div (click)="toggleMenu()" [class.opacity-100]="vm.isMenuOpen" [class.pointer-events-auto]="vm.isMenuOpen"
      class="fixed inset-0 bg-dark/70 backdrop-blur-sm z-40 opacity-0 pointer-events-none transition-opacity duration-300 lg:hidden"></div>
-<nav [class.translate-x-0]="vm.isMenuOpen" [class.translate-x-full]="!vm.isMenuOpen"
+<nav id="mobile-menu-panel" [class.translate-x-0]="vm.isMenuOpen" [class.translate-x-full]="!vm.isMenuOpen"
      class="fixed top-0 right-0 h-full w-full max-w-sm bg-white shadow-2xl z-40 transition-transform duration-300 ease-in-out">
   <div class="flex flex-col h-full p-8 pt-24">
     <ul class="space-y-6 text-2xl font-semibold text-center">
@@ -250,6 +245,13 @@ export class AppComponent {
   private readonly isScrolled = signal(false);
   private readonly isMenuOpen = signal(false);
   private readonly activeSectionId = signal<string>('hero');
+  
+  // Data is imported from app.data.ts
+  readonly company = AppData.company;
+  readonly sections = AppData.sections;
+  readonly trustSignals = AppData.trustSignals;
+  readonly services = AppData.services;
+  readonly testimonials = AppData.testimonials;
 
   readonly currentYear = new Date().getFullYear();
 
@@ -257,62 +259,11 @@ export class AppComponent {
     ? 'bg-white/95 backdrop-blur-md text-dark'
     : 'bg-transparent text-white'
   );
-
-  readonly sections: Section[] = [
-    { id: 'hero', label: 'Início' },
-    { id: 'services', label: 'Serviços' },
-    { id: 'about', label: 'A Empresa' },
-    { id: 'testimonials', label: 'Clientes' },
-    { id: 'footer', label: 'Contato' }
-  ];
-
-  readonly company = {
-    name: 'PBC Instalação RJ',
-    phone: '(21) 93300-4776',
-    whatsapp: '5521933004776',
-    email: 'contato@pbcinstalacaorj.com.br',
-    coverage: 'Atendemos todo o Rio de Janeiro, Niterói, Baixada e Região dos Lagos.',
-    about: 'Nascemos da necessidade de um serviço de climatização que fosse sinônimo de confiança. Na PBC, cada instalação é uma obra de engenharia, cada manutenção é um compromisso com a saúde, e cada reparo de emergência é uma promessa de tranquilidade. Somos obcecados por detalhes, desde o vácuo perfeito no sistema até a limpeza impecável do local.'
-  } as const;
   
   readonly whatsapp = {
     normal: computed(() => this.buildWhatsAppLink('Olá PBC! 🌴 Gostaria de um orçamento gratuito para ar condicionado. Pode me ajudar?')),
     emergency: computed(() => this.buildWhatsAppLink('🚨 EMERGÊNCIA 24H - Meu ar condicionado parou de funcionar! Preciso de um técnico URGENTE!'))
   };
-
-  readonly trustSignals = signal<TrustSignal[]>([
-    { icon: 'M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z', text: '10+ Anos de Mercado' },
-    { icon: 'M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.83-5.83M11.42 15.17l-4.24-4.24 5.83-5.83a2.652 2.652 0 00-3.75-3.75L1.67 11.42c-.99.99-.99 2.6 0 3.59l4.24 4.24c.99.99 2.6.99 3.59 0l1.9-1.9z', text: 'Técnicos Certificados' },
-    { icon: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z', text: 'Garantia Total em Contrato' },
-    { icon: 'M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z', text: 'Atendimento 24/7' }
-  ]);
-
-  readonly services = signal<Service[]>([
-    {
-      title: 'Instalação de Alta Performance',
-      description: 'Split, Inverter e Multi-Split. Seguimos 100% das normas do fabricante para garantir a máxima eficiência e durabilidade.',
-      image: 'https://images.pexels.com/photos/6957432/pexels-photo-6957432.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      icon: 'M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.83-5.83M11.42 15.17l-4.24-4.24 5.83-5.83a2.652 2.652 0 00-3.75-3.75L1.67 11.42c-.99.99-.99 2.6 0 3.59l4.24 4.24c.99.99 2.6.99 3.59 0l1.9-1.9z'
-    },
-    {
-      title: 'Manutenção e Higienização',
-      description: 'Limpeza profunda que elimina 99.9% de ácaros, fungos e bactérias. Respire ar puro e aumente a vida útil do seu equipamento.',
-      image: 'https://images.pexels.com/photos/5854183/pexels-photo-5854183.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      icon: 'M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z'
-    },
-    {
-      title: 'Reparo de Emergência 24/7',
-      description: 'Seu ar parou? Chegamos em até 2h no Rio e Niterói. Diagnóstico rápido e solução imediata para seu conforto.',
-      image: 'https://images.pexels.com/photos/4421524/pexels-photo-4421524.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      icon: 'M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z'
-    }
-  ]);
-
-  readonly testimonials = signal<Testimonial[]>([
-    { name: 'Dr. Roberto Lima', role: 'Clínica Odontológica • Leblon', text: 'A única empresa que conseguiu instalar 12 splits em 2 dias sem interromper nosso atendimento. O nível de organização e limpeza é surreal. São de outro planeta.', photo: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&dpr=2', rating: 5 },
-    { name: 'Fernanda Costa', role: 'Síndica Cond. Vistamar • Niterói', text: 'Depois de anos trocando de empresa, finalmente encontramos a PBC. O laudo do PMOC é impecável e o atendimento é absurdamente rápido. Recomendo para todos os síndicos.', photo: 'https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&dpr=2', rating: 5 },
-    { name: 'Marcelo Borges', role: 'Dono de Loja • Recreio', text: 'Em pleno sábado de 40 graus, meu ar central parou. Achei que ia perder o dia de vendas. Liguei para a PBC e em menos de duas horas o técnico estava aqui e resolveu. Salvaram meu negócio!', photo: 'https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&dpr=2', rating: 5 }
-  ]);
   
   private buildWhatsAppLink(message: string): string {
     return `https://wa.me/${this.company.whatsapp}?text=${encodeURIComponent(message)}`;
