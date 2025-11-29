@@ -3,6 +3,7 @@ export interface Service { title: string; description: string; image: string; ic
 export interface Testimonial { name: string; role: string; text: string; photo: string; rating: number; linkedin?: string; }
 export interface Section { id: string; label: string; }
 export interface TrustSignal { icon: string; text: string; }
+export interface FaqItem { question: string; answer: string; }
 
 export const company = {
   name: 'PBC Instalação RJ',
@@ -18,6 +19,7 @@ export const sections: Section[] = [
   { id: 'services', label: 'Serviços' },
   { id: 'about', label: 'A Empresa' },
   { id: 'testimonials', label: 'Clientes' },
+  { id: 'faq', label: 'Dúvidas' },
   { id: 'footer', label: 'Contato' }
 ];
 
@@ -59,5 +61,28 @@ export const testimonials: Testimonial[] = [
     photo: 'assets/images/arcond4.jpg', 
     rating: 5,
     linkedin: 'https://www.linkedin.com/in/devferreirag'
+  }
+];
+
+export const faqs: FaqItem[] = [
+  {
+    question: 'Qual a diferença entre ar condicionado Inverter e o convencional?',
+    answer: 'O Inverter ajusta a velocidade do compressor para manter a temperatura desejada sem desligar, economizando até 60% de energia e sendo mais silencioso. O convencional liga e desliga o compressor para controlar a temperatura, o que gera picos de consumo.'
+  },
+  {
+    question: 'De quanto em quanto tempo devo fazer a manutenção?',
+    answer: 'Para uso residencial, recomendamos a limpeza dos filtros mensalmente (você mesmo pode fazer) e uma manutenção preventiva completa com um técnico a cada 6 ou 12 meses, dependendo da frequência de uso e da poluição do local.'
+  },
+  {
+    question: 'Meu ar condicionado está pingando água para dentro. O que pode ser?',
+    answer: 'Isso geralmente ocorre por obstrução no dreno, que impede a água da condensação de sair. Pode ser sujeira ou instalação incorreta. É crucial chamar um técnico para evitar danos à parede e ao equipamento.'
+  },
+  {
+    question: 'Vocês atendem em toda a cidade do Rio de Janeiro?',
+    answer: 'Sim! Atendemos todos os bairros do Rio de Janeiro (Zona Sul, Norte, Oeste e Centro), além de Niterói, São Gonçalo, Baixada Fluminense e Região dos Lagos. Consulte-nos para confirmar a cobertura na sua localidade específica.'
+  },
+  {
+    question: 'A visita técnica para orçamento é cobrada?',
+    answer: 'Nós cobramos uma taxa de visita para cobrir o deslocamento e o tempo do técnico para fazer um diagnóstico preciso. No entanto, se você aprovar o orçamento e realizar o serviço conosco, essa taxa de visita é 100% abonada.'
   }
 ];

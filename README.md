@@ -1,4 +1,13 @@
-# 🚀 PBC Instalação RJ - Máquina de Conversão de Alta Performance
+<div align="center">
+  <h1 style="font-size: 3rem; font-weight: 900; letter-spacing: -0.05em; margin-bottom: 0;">
+    PBC Instalação RJ
+  </h1>
+  <p style="font-size: 1.25rem; margin-top: 0.5rem; color: #4A5568;">
+    <strong>Uma Máquina de Conversão de Leads Construída com a Elite da Tecnologia Web.</strong>
+  </p>
+</div>
+
+<div align="center">
 
 ![Angular](https://img.shields.io/badge/Angular-18+-DD0031?style=for-the-badge&logo=angular)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.4+-3178C6?style=for-the-badge&logo=typescript)
@@ -6,96 +15,140 @@
 ![Vercel Ready](https://img.shields.io/badge/Vercel-Ready-000000?style=for-the-badge&logo=vercel)
 ![Lighthouse Performance](https://img.shields.io/badge/Lighthouse-100-F44336?style=for-the-badge&logo=lighthouse)
 
-## 📄 Tabela de Conteúdos
-
-1.  [Visão Geral & Filosofia](#-visão-geral--filosofia)
-2.  [✨ Destaques Estratégicos & UI/UX](#-destaques-estratégicos--uiux)
-3.  [🛠️ Arquitetura de Ponta: Um Mergulho Técnico Profundo](#️-arquitetura-de-ponta-um-mergulho-técnico-profundo)
-4.  [📈 Estratégia de SEO e Performance](#-estratégia-de-seo-e-performance)
-5.  [🔧 Guia de Customização Rápida](#-guia-de-customização-rápida)
-6.  [📂 Anatomia do Projeto](#-anatomia-do-projeto)
-7.  [💻 Desenvolvimento Local](#-desenvolvimento-local)
-8.  [🚀 Deploy na Vercel](#-deploy-na-vercel)
+</div>
 
 ---
 
-## 🎯 Visão Geral & Filosofia
+> **Este projeto é mais do que um site: é um ativo de negócio digital.** Ele foi projetado do zero não apenas para ter uma boa aparência, mas para executar uma função crítica: transformar visitantes em clientes pagantes com a máxima eficiência. Cada decisão, da arquitetura do código à escolha da fonte, serve ao objetivo principal de **conversão**.
 
-Este projeto é uma **ferramenta de conversão de alta performance** disfarçada de uma landing page. Desenvolvido para a **PBC Instalação RJ**, uma empresa de climatização no Rio de Janeiro, ele foi construído com as tecnologias web mais modernas para garantir máxima performance e conversão.
+## 📖 Tabela de Conteúdos
 
-**Filosofia Central:** Cada linha de código e cada escolha de design serve a um propósito de negócio: **transformar visitantes em clientes pagantes**. A aplicação foi projetada para ser excepcionalmente rápida, confiável e persuasiva, eliminando qualquer atrito que possa impedir um cliente em potencial de entrar em contato.
+1.  [**I. O Caso de Negócio: Anatomia de um Funil de Conversão**](#-i-o-caso-de-negócio-anatomia-de-um-funil-de-conversão)
+2.  [**II. UI/UX: Design Estratégico para Confiança e Ação**](#-ii-uiux-design-estratégico-para-confiança-e-ação)
+3.  [**III. Mergulho Profundo: A Arquitetura Moderna Angular**](#-iii-mergulho-profundo-a-arquitetura-moderna-angular)
+4.  [**IV. SEO & Performance: A Base para a Visibilidade**](#-iv-seo--performance-a-base-para-a-visibilidade)
+5.  [**V. Guia de Customização: Faça o Projeto Ser Seu**](#-v-guia-de-customização-faça-o-projeto-ser-seu)
+6.  [**VI. Anatomia do Projeto: Onde Tudo Está**](#-vi-anatomia-do-projeto-onde-tudo-está)
+7.  [**VII. Guia de Operações: Desenvolvimento e Deploy**](#-vii-guia-de-operações-desenvolvimento-e-deploy)
+8.  [**VIII. Roadmap Estratégico: Próximos Passos de Alto Valor**](#-viii-roadmap-estratégico-próximos-passos-de-alto-valor)
 
 ---
 
-## ✨ Destaques Estratégicos & UI/UX
+## Ⅰ. O Caso de Negócio: Anatomia de um Funil de Conversão
 
-A interface foi meticulosamente projetada para guiar o usuário por uma jornada de conversão, construindo confiança e urgência em cada etapa.
+A estrutura da página não é aleatória. Ela segue o clássico funil de marketing **AIDA** para guiar o visitante de forma natural e persuasiva desde o primeiro contato até a ação de solicitar um orçamento.
+
+| Estágio do Funil | Seção Correspondente                                    | Objetivo Estratégico                                                                      |
+| :--------------- | :------------------------------------------------------ | :---------------------------------------------------------------------------------------- |
+| **Atenção**      | **Hero Section** (`#hero`)                              | Capturar a atenção em 3 segundos com uma proposta de valor forte e um visual impactante.  |
+| **Interesse**    | **Trust Bar** & **Serviços** (`#services`)              | Gerar interesse ao estabelecer credibilidade imediata e apresentar soluções claras para as dores do cliente. |
+| **Desejo**       | **Sobre Nós** (`#about`) & **Depoimentos** (`#testimonials`) | Construir o desejo ao conectar-se emocionalmente com o cliente (missão) e fornecer prova social (depoimentos). |
+| **Ação**         | **CTAs** (Hero, Fim das Seções, Footer, Flutuante)        | Converter o desejo em ação, oferecendo múltiplos pontos de contato de baixo atrito (WhatsApp). |
+
+---
+
+## Ⅱ. UI/UX: Design Estratégico para Confiança e Ação
+
+A interface foi meticulosamente projetada para ser intuitiva, profissional e, acima de tudo, para facilitar a conversão.
 
 -   **Design de Resposta Imediata**: Experiência de usuário impecável em qualquer dispositivo, de smartphones a desktops de alta resolução.
--   **Cabeçalho Inteligente**: Transparente na seção principal, transita para um fundo sólido na rolagem para máxima legibilidade e usabilidade.
+-   **Cabeçalho Inteligente**: Transparente na seção principal para imersão, transita para um fundo sólido na rolagem para máxima legibilidade e usabilidade.
 -   **Navegação Intuitiva (Scroll Spy)**: O menu de navegação destaca dinamicamente a seção visível, orientando o usuário de forma fluida.
 -   **Micro-interações de Alta Performance**: Animações sutis ativadas por rolagem, implementadas com a `IntersectionObserver` API para garantir zero impacto na performance.
 -   **CTAs de Conversão Rápida**: Botões de "Call to Action" posicionados estrategicamente, incluindo um CTA flutuante em dispositivos móveis, para direcionar o usuário ao WhatsApp e acelerar o pedido de orçamento.
 -   **Mensagens de WhatsApp Pré-formatadas**: Links para WhatsApp com mensagens pré-preenchidas para eliminar qualquer atrito na comunicação inicial.
--   **Barra de Confiança Imediata**: Uma seção dedicada logo abaixo da área principal para estabelecer credibilidade instantânea com propostas de valor chave ("+10 Anos de Mercado", "Técnicos Certificados").
--   **SEO de Nível Profissional**: Implementação de SEO completa, incluindo meta tags, Open Graph, Twitter Cards, URL canônica e um schema `JSON-LD` para resultados de busca ricos (Rich Snippets) como `LocalBusiness`.
 
 ---
 
-## 🛠️ Arquitetura de Ponta: Um Mergulho Técnico Profundo
+## Ⅲ. Mergulho Profundo: A Arquitetura Moderna Angular
 
-Este projeto utiliza uma stack frontend de ponta, focada em performance, resiliência e na melhor experiência de desenvolvimento possível, compilada com o Angular CLI.
+Este projeto utiliza uma stack frontend de ponta, compilada com o Angular CLI, focada em performance, resiliência e na melhor experiência de desenvolvimento possível.
 
-| Componente      | Tecnologia                                                                                                 | Justificativa                                                                                                        |
+### Arquitetura em Resumo
+
+| Componente      | Tecnologia                                                                                                 | Justificativa Estratégica                                                                                               |
 | --------------- | ---------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
-| **Framework**   | [**Angular v18+**](https://angular.dev/)                                                                   | Robustez, performance e ecossistema maduro para aplicações complexas.                                                |
-| **Arquitetura** | **Componentes Standalone**                                                                                 | Elimina `NgModules`, resultando em um bundle menor, inicialização mais rápida e componentização simplificada.        |
-| **Estado**      | [**Angular Signals**](https://angular.dev/guide/signals)                                                   | Gerenciamento de estado reativo, declarativo e altamente eficiente, garantindo renderizações mínimas.                |
-| **Estilização** | [**Tailwind CSS v3**](https://tailwindcss.com/)                                                            | Framework utility-first que permite o desenvolvimento rápido de interfaces complexas via CDN.                        |
-| **Imagens**     | [**NgOptimizedImage**](https://angular.dev/guide/image-optimization)                                       | Otimização automática de imagens para performance superior (Core Web Vitals).                                        |
-| **Deployment**  | **Build Otimizado para Produção**                                                                          | O Angular CLI compila e otimiza a aplicação, gerando arquivos estáticos para deploy em qualquer CDN (ex: Vercel). |
+| **Framework**   | [**Angular v18+**](https://angular.dev/)                                                                   | Robustez, performance e um ecossistema maduro para aplicações que precisam ser confiáveis e escaláveis.              |
+| **Arquitetura** | **Componentes Standalone**                                                                                 | Elimina a complexidade e o boilerplate dos `NgModules`, resultando em um bundle menor, inicialização mais rápida e componentização simplificada. |
+| **Estado**      | [**Angular Signals**](https://angular.dev/guide/signals)                                                   | Gerenciamento de estado reativo, declarativo e granularmente eficiente, garantindo renderizações mínimas e performance máxima. |
+| **Estilização** | [**Tailwind CSS v3**](https://tailwindcss.com/)                                                            | Framework utility-first que permite o desenvolvimento rápido de interfaces complexas e consistentes, carregado via CDN para simplicidade. |
+| **Imagens**     | [**NgOptimizedImage**](https://angular.dev/guide/image-optimization)                                       | Otimização automática e fundamental de imagens para performance superior e notas perfeitas nos Core Web Vitals.      |
+| **Deployment**  | **Build Otimizado para Produção**                                                                          | O Angular CLI compila, otimiza e empacota a aplicação, gerando arquivos estáticos de alta performance para deploy em qualquer CDN (ex: Vercel). |
 
-### 1. Arquitetura Moderna com Componentes Standalone
-A aplicação adota a arquitetura de **Componentes Standalone**, o padrão moderno do Angular. Isso elimina a complexidade dos `NgModules`, simplifica a estrutura do projeto e facilita o lazy-loading de componentes, melhorando a performance inicial. Cada peça da UI é um componente auto-contido e mais fácil de manter.
+### 1. Estado Reativo e Eficiente com Signals
 
-### 2. Estado Reativo com Signals
+O coração da reatividade do `AppComponent` é baseado em Signals. Em vez de múltiplos `async` pipes ou subscrições manuais, criamos uma única fonte de verdade computada para o template.
 
-O estado do `AppComponent` é gerenciado exclusivamente com Signals. Uma única fonte de verdade para o template, `data()`, é criada a partir de múltiplos signals de estado (`isScrolled`, `isMenuOpen`, etc.) usando `computed`. Este padrão garante que o DOM seja atualizado da forma mais eficiente possível.
+> **Por que Signals?** Signals notificam o Angular sobre *o que* mudou de forma granular. Isso permite que o framework atualize apenas as partes exatas do DOM que dependem daquele estado, evitando re-renderizações desnecessárias de componentes inteiros. É o ápice da performance de renderização.
 
 ```typescript
 // src/app.component.ts
 export class AppComponent {
+  // Sinais de estado primitivos
   private readonly isScrolled = signal(false);
   private readonly isMenuOpen = signal(false);
-  // ... outros signals
+  private readonly activeSectionId = signal<string>('hero');
+  
+  // ... dados estáticos ...
 
+  // Signal Computado: a única fonte de verdade para o template.
+  // Ele recalcula automaticamente e de forma eficiente apenas quando
+  // um de seus sinais dependentes (isScrolled, isMenuOpen, etc.) muda.
   readonly data = computed(() => ({
     isScrolled: this.isScrolled(),
     isMenuOpen: this.isMenuOpen(),
-    // ... outros dados derivados para o template
+    activeSection: this.activeSectionId(),
+    headerClasses: this.isScrolled() ? 'bg-white/95...' : 'bg-transparent...',
+    // ... todos os outros dados necessários para o template
   }));
 }
 ```
-
-### 3. Otimização de Imagens com `NgOptimizedImage`
-
-Todas as tags `<img>` foram substituídas pela diretiva `NgOptimizedImage` (`[ngSrc]`). Isso ativa um conjunto de otimizações automáticas:
--   **Lazy Loading**: Imagens fora da tela não são carregadas até que o usuário role até elas.
--   **Prevenção de "Layout Shift"**: Requer `width` e `height`, estabilizando o layout da página.
--   **Priorização**: A imagem principal na seção "Sobre" usa `priority` para ser carregada o mais rápido possível, otimizando a métrica LCP (Largest Contentful Paint).
-
+No template, acessamos tudo através de uma única variável `vm`:
 ```html
-<!-- src/app.component.ts (template) -->
-<img ngSrc="..." width="..." height="..." priority>
+@let vm = data();
+<header [class]="vm.headerClasses">
+  <!-- ... -->
+</header>
 ```
 
-### 4. Animações Performáticas (`IntersectionObserver`)
+### 2. Animações Performáticas com `IntersectionObserver`
 
-A diretiva `src/animate-on-scroll.directive.ts` utiliza a API nativa `IntersectionObserver` do navegador. Isso é infinitamente mais performático do que escutar eventos de `scroll`, pois delega a detecção de visibilidade ao navegador, mantendo a thread principal da aplicação livre.
+A diretiva `src/animate-on-scroll.directive.ts` é um exemplo de otimização de performance.
+
+> **Por que `IntersectionObserver`?** Escutar eventos de `scroll` (`(window:scroll)`) pode disparar centenas de vezes por segundo, sobrecarregando a thread principal do navegador e causando "jank" (travamentos). A API `IntersectionObserver` delega essa tarefa ao navegador, que a executa de forma otimizada e notifica nossa aplicação apenas quando o elemento entra (ou sai) da tela. É a maneira moderna e correta de implementar animações de "scroll".
+
+```typescript
+// src/animate-on-scroll.directive.ts
+@Directive({
+  selector: '[appAnimateOnScroll]',
+  standalone: true,
+})
+export class AnimateOnScrollDirective {
+  private readonly elementRef = inject(ElementRef);
+
+  constructor() {
+    // Executa após a primeira renderização do cliente
+    afterNextRender(() => {
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          // Se o elemento está visível
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            // Opcional: para de observar após a primeira animação
+            observer.unobserve(entry.target); 
+          }
+        });
+      }, { threshold: 0.1 }); // Dispara quando 10% do elemento está visível
+      
+      observer.observe(this.elementRef.nativeElement);
+    });
+  }
+}
+```
 
 ---
 
-## 📈 Estratégia de SEO e Performance
+## Ⅳ. SEO & Performance: A Base para a Visibilidade
 
 A performance não é um recurso, é a base.
 -   **Core Web Vitals Otimizados**: O uso de `NgOptimizedImage` e uma arquitetura moderna contribuem para notas excelentes em LCP, CLS e INP.
@@ -104,86 +157,75 @@ A performance não é um recurso, é a base.
 
 ---
 
-## 🔧 Guia de Customização Rápida
+## Ⅴ. Guia de Customização: Faça o Projeto Ser Seu
 
-Para personalizar a aplicação, edite o arquivo `src/app.data.ts`.
+A personalização foi projetada para ser rápida e centralizada. O arquivo mais importante para você é o `src/app.data.ts`.
 
-#### 1. Informações da Empresa e Contato
+### 1. Customização Rápida (Conteúdo)
 
-Modifique o objeto `company` para atualizar telefone, e-mail, WhatsApp e textos.
+Abra `src/app.data.ts` para editar:
+-   **Informações da Empresa:** Modifique o objeto `company` para atualizar nome, telefone, WhatsApp, e-mail, área de cobertura e o texto "Sobre nós".
+-   **Serviços:** Adicione, remova ou edite objetos no array `services`. Ícones SVG são de [heroicons.com](https://heroicons.com/).
+-   **Depoimentos:** Adicione, remova ou edite objetos no array `testimonials`.
 
-```typescript
-// src/app.data.ts
-export const company = {
-  name: 'SUA EMPRESA',
-  phone: '(XX) XXXXX-XXXX',
-  whatsapp: '55XX9XXXXXXXX',
-  email: 'contato@suaempresa.com.br',
-  coverage: 'Sua área de cobertura.',
-  about: 'Um texto sobre sua empresa.'
-};
-```
+### 2. Customização de Aparência (Branding)
 
-#### 2. Serviços
+Abra `index.html` para editar:
+-   **Cores do Tema:** Dentro da tag `<script>` que configura `tailwind.config`, você pode alterar as cores `primary` e `accent` para redefinir a paleta de cores de todo o site instantaneamente.
+-   **Fontes:** A fonte utilizada (Inter) é importada do Google Fonts. Você pode trocá-la alterando o link na seção `<head>`.
+-   **Logo:** O logo é baseado em texto para simplicidade. Para alterá-lo, edite o template no `src/app.component.ts`, nas linhas que contêm `<span class="text-primary">PBC</span><span class="text-accent">RJ</span>`.
 
-Adicione ou modifique objetos no array `services`. As imagens são de `pexels.com`.
+### 3. Customização Avançada: Adicionando uma Nova Seção
 
-```typescript
-// src/app.data.ts
-export const services: Service[] = [
-  {
-    title: 'Novo Serviço',
-    description: 'Descrição do seu novo serviço.',
-    image: 'https://images.pexels.com/...',
-    icon: '...' // SVG path de heroicons.com
-  },
-  // ... outros serviços
-];
-```
+Vamos supor que você queira adicionar uma seção de "FAQ".
 
-#### 3. Depoimentos
+1.  **Adicione a Seção aos Dados (`src/app.data.ts`):**
+    ```typescript
+    export const sections: Section[] = [
+      // ... outras seções
+      { id: 'faq', label: 'Dúvidas' }, // Nova seção
+      { id: 'footer', label: 'Contato' }
+    ];
+    // Opcional: Crie um novo array de dados para o FAQ
+    export const faqs = [ { question: '...', answer: '...' } ];
+    ```
 
-Adicione ou modifique objetos no array `testimonials`.
+2.  **Adicione o HTML da Seção (`src/app.component.ts`):**
+    No template do `AppComponent`, adicione a nova seção no local desejado (ex: antes do CTA Final).
+    ```html
+    <!-- ... depois da seção de depoimentos ... -->
 
-```typescript
-// src/app.data.ts
-export const testimonials: Testimonial[] = [
-  { 
-    name: 'Nome do Cliente', 
-    role: 'Cargo ou Localização', 
-    text: 'Depoimento do cliente.', 
-    photo: 'https://images.pexels.com/...', 
-    rating: 5 
-  },
-  // ... outros depoimentos
-];
-```
+    <!-- FAQ -->
+    <section id="faq" class="py-24 lg:py-32 bg-light">
+      <div class="container mx-auto px-4 sm:px-6 lg:py-8">
+        <div class="text-center mb-16" appAnimateOnScroll>
+          <h2 class="text-4xl lg:text-5xl font-black text-primary">Dúvidas Frequentes</h2>
+        </div>
+        <!-- ... adicione seu código para listar os FAQs aqui ... -->
+      </div>
+    </section>
 
-#### 4. Tema de Cores
-
-As cores principais podem ser alteradas diretamente no `tailwind.config` dentro do `index.html`.
-
-```html
-<!-- index.html -->
-<script>
-  tailwind.config = {
-    theme: {
-      extend: {
-        colors: {
-          primary: '#NOVACOR',      // Cor principal (azul)
-          accent: '#NOVACOR_ACCENT' // Cor de destaque (verde)
-        }
-      }
+    <!-- FINAL CTA -->
+    <!-- ... -->
+    ```
+3. **Disponibilize os dados para o template (`src/app.component.ts`):**
+    Exponha os novos dados de FAQ no componente e no `computed` signal.
+    ```typescript
+    export class AppComponent {
+      // ...
+      readonly faqs = AppData.faqs; // Importe os dados
+      // ...
+      readonly data = computed(() => ({
+        // ...
+        faqs: this.faqs, // Exponha para o template
+      }));
     }
-  }
-</script>
-```
+    ```
+A nova seção agora está integrada à navegação e ao scroll spy automaticamente.
 
 ---
 
-## 📂 Anatomia do Projeto
-
-A estrutura do projeto é organizada para ser limpa e manutenível, seguindo as melhores práticas do Angular CLI.
+## Ⅵ. Anatomia do Projeto: Onde Tudo Está
 
 ```
 .
@@ -191,19 +233,21 @@ A estrutura do projeto é organizada para ser limpa e manutenível, seguindo as 
 ├── package.json               # Dependências do projeto e scripts (build, serve)
 ├── tsconfig.json              # Configuração base do TypeScript
 ├── vercel.json                # Configuração para deploy na Vercel (modo SPA)
-├── index.html                 # Ponto de entrada da aplicação, SEO e configuração do Tailwind
+├── index.html                 # Ponto de entrada, SEO, configuração do Tailwind, Schema JSON-LD
 └── src
-    ├── assets/                # Pasta para imagens e outros assets estáticos
+    ├── assets/                # Imagens, fontes e outros assets estáticos
     ├── main.ts                # Arquivo que inicializa (bootstrap) a aplicação Angular
-    ├── styles.css             # Estilos globais (usado minimamente, preferência por Tailwind)
-    ├── app.component.ts       # O único componente raiz, com template inline, lógica e estado
-    ├── app.data.ts            # Centraliza todos os dados estáticos (conteúdo) da aplicação
-    └── animate-on-scroll.directive.ts # Diretiva para animações baseada em IntersectionObserver
+    ├── styles.css             # Estilos globais (usado minimamente)
+    ├── app.component.ts       # O ÚNICO COMPONENTE. Contém toda a lógica e o template HTML inline.
+    ├── app.data.ts            # O "MINI-CMS". Centraliza todo o conteúdo de texto e dados.
+    └── animate-on-scroll.directive.ts # Diretiva para animações de scroll performáticas.
 ```
 
 ---
 
-## 💻 Desenvolvimento Local
+## Ⅶ. Guia de Operações: Desenvolvimento e Deploy
+
+### Desenvolvimento Local
 
 Para executar o projeto em sua máquina local, siga estes passos:
 
@@ -220,28 +264,37 @@ Para executar o projeto em sua máquina local, siga estes passos:
 4.  **Inicie o Servidor de Desenvolvimento:**
     ```bash
     npm start
+    # ou 'ng serve'
     ```
     Este comando irá compilar a aplicação e iniciá-la em modo de desenvolvimento com hot-reload.
 5.  **Acesse no Navegador:**
-    Abra seu navegador e acesse `http://localhost:4200/`. A aplicação será recarregada automaticamente se você alterar qualquer um dos arquivos de origem.
+    Abra seu navegador e acesse `http://localhost:4200/`.
 
----
-
-## 🚀 Deploy na Vercel
+### Deploy na Vercel
 
 Publicar este projeto na Vercel é um processo de "push-to-deploy" extremamente simples.
 
-1.  **Crie um Repositório no GitHub:** Se ainda não o fez, crie um repositório no GitHub e envie os arquivos do projeto para ele.
+1.  **Crie um Repositório no GitHub:** Se ainda não o fez, envie os arquivos do projeto para um repositório no GitHub.
 2.  **Importe o Projeto na Vercel:**
-    *   Faça login na sua conta Vercel.
-    *   Clique em "Add New..." -> "Project".
-    *   Importe o repositório do GitHub que você acabou de criar.
+    *   Faça login na sua conta Vercel e importe o repositório.
 3.  **Configure e Faça o Deploy:**
     *   A Vercel irá detectar automaticamente que é um projeto **Angular**.
-    *   Nas configurações de Build & Development, assegure-se de que os seguintes comandos estão definidos (geralmente são o padrão para Angular):
+    *   As configurações de Build & Development devem ser as padrão para Angular:
         *   **Build Command**: `ng build`
-        *   **Output Directory**: `dist/pbc-instalacao`
+        *   **Output Directory**: `dist/pbc-instalacao` (verifique o `outputPath` no `angular.json`)
         *   **Install Command**: `npm install`
     *   Clique em **"Deploy"**.
 
-É isso! A Vercel irá compilar e publicar sua aplicação. Sua aplicação estará online em segundos e será atualizada automaticamente a cada novo push para o seu repositório.
+> O arquivo `vercel.json` está incluído para garantir que o roteamento de SPA funcione corretamente, redirecionando todas as requisições para `index.html`.
+
+---
+
+## Ⅷ. Roadmap Estratégico: Próximos Passos de Alto Valor
+
+Esta base sólida permite evoluções futuras para transformar a landing page em uma plataforma de marketing completa.
+
+-   **[ ] Blog / Marketing de Conteúdo:** Adicionar uma seção de blog para artigos de SEO (`"como escolher ar condicionado"`, `"manutenção preventiva"`) para atrair tráfego orgânico.
+-   **[ ] Integração com Headless CMS:** Migrar o conteúdo de `app.data.ts` para um CMS como Strapi, Sanity ou Contentful para permitir que não-desenvolvedores atualizem o site.
+-   **[ ] Testes A/B:** Implementar testes A/B para headlines e botões de CTA usando uma ferramenta como Google Optimize ou VWO para otimizar ainda mais a taxa de conversão.
+-   **[ ] Formulário de Contato Avançado:** Adicionar um formulário de contato (além do WhatsApp) que se integre com um CRM ou envie notificações por e-mail via uma serverless function.
+-   **[ ] Análise de Performance Contínua:** Integrar ferramentas de análise (Google Analytics, Hotjar) para entender o comportamento do usuário e identificar pontos de melhoria no funil de conversão.

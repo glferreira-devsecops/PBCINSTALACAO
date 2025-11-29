@@ -217,6 +217,40 @@ import * as AppData from './app.data';
     </div>
   </section>
 
+  <!-- FAQ -->
+  <section id="faq" class="py-24 lg:py-32 bg-light">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16" appAnimateOnScroll>
+        <h2 class="text-4xl lg:text-5xl font-black text-primary">Ainda tem Dúvidas?</h2>
+        <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">Respostas rápidas para as perguntas mais comuns. Se a sua não estiver aqui, fale conosco!</p>
+      </div>
+      <div class="max-w-4xl mx-auto" appAnimateOnScroll>
+        <div class="border border-gray-200 rounded-xl shadow-sm bg-white">
+          @for (faq of vm.faqs; track $index; let isLast = $last) {
+            <div [class.border-b]="!isLast" [class.border-gray-200]="!isLast">
+              <button (click)="toggleFaq($index)" [attr.aria-expanded]="vm.openFaqIndex === $index" [attr.aria-controls]="'faq-answer-' + $index"
+                      class="flex justify-between items-center w-full p-6 text-left font-semibold text-lg hover:bg-gray-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
+                <span>{{ faq.question }}</span>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" 
+                     class="w-6 h-6 text-primary transition-transform duration-300"
+                     [class.rotate-180]="vm.openFaqIndex === $index">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                </svg>
+              </button>
+              <div [id]="'faq-answer-' + $index"
+                   class="grid transition-[grid-template-rows] duration-500 ease-in-out"
+                   [style.grid-template-rows]="vm.openFaqIndex === $index ? '1fr' : '0fr'">
+                <div class="overflow-hidden">
+                  <p class="px-6 pb-6 text-gray-600 leading-relaxed">{{ faq.answer }}</p>
+                </div>
+              </div>
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- FINAL CTA -->
   <section class="py-24 cta-bg text-white" appAnimateOnScroll>
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -267,7 +301,7 @@ import * as AppData from './app.data';
 
   <!-- Floating Mobile CTA -->
   <a [href]="vm.whatsapp.normal" target="_blank"
-     class="fixed bottom-4 left-4 right-4 bg-accent text-dark font-black text-center py-4 rounded-full shadow-2xl z-30 lg:hidden animate-pulse text-lg flex items-center justify-center gap-2 hover:scale-105 transition-transform">
+     class="fixed bottom-4 left-4 right-4 bg-accent text-dark font-black text-center py-4 rounded-full shadow-2xl z-30 lg:hidden animate-pulse text-lg flex items-center justify-center gap-2 hover:scale-105 transition-transform animate-fade-in-bottom">
     <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.894 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.886-.001 2.269.655 4.398 1.919 6.121l-1.161 4.225 4.273-1.119z"/></svg>
     SOLICITAR ORÇAMENTO
   </a>
@@ -278,6 +312,7 @@ export class AppComponent {
   private readonly isScrolled = signal(false);
   private readonly isMenuOpen = signal(false);
   private readonly activeSectionId = signal<string>('hero');
+  private readonly openFaqIndex = signal<number | null>(null);
   
   // Data is imported from app.data.ts
   readonly company = AppData.company;
@@ -288,6 +323,7 @@ export class AppComponent {
     ...testimonial,
     starArray: Array(testimonial.rating).fill(0)
   }));
+  readonly faqs = AppData.faqs;
 
   readonly currentYear = new Date().getFullYear();
 
@@ -337,10 +373,15 @@ export class AppComponent {
     this.isMenuOpen.update(v => !v);
   }
 
+  toggleFaq(index: number): void {
+    this.openFaqIndex.update(currentIndex => currentIndex === index ? null : index);
+  }
+
   readonly data = computed(() => ({
     isScrolled: this.isScrolled(),
     isMenuOpen: this.isMenuOpen(),
     activeSection: this.activeSectionId(),
+    openFaqIndex: this.openFaqIndex(),
     headerClasses: this.headerClasses(),
     whatsapp: {
         normal: this.whatsapp.normal()
@@ -349,6 +390,7 @@ export class AppComponent {
     trustSignals: this.trustSignals,
     services: this.services,
     testimonials: this.testimonials,
+    faqs: this.faqs,
     company: this.company,
     currentYear: this.currentYear,
   }));
