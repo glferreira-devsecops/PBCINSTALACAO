@@ -1,7 +1,3 @@
-
-
-
-
 import { Component, signal, computed, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { AnimateOnScrollDirective } from './animate-on-scroll.directive';
@@ -154,7 +150,7 @@ import * as AppData from './app.data';
           </a>
         </div>
         <div class="order-1 lg:order-2">
-          <img ngSrc="https://images.pexels.com/photos/7245464/pexels-photo-7245464.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Técnico da PBC Instalação RJ" class="rounded-xl shadow-2xl w-full" width="1260" height="750" priority>
+          <img ngSrc="assets/images/arcond4.jpg" alt="Técnico da PBC Instalação RJ" class="rounded-xl shadow-2xl w-full" width="1260" height="750" priority>
         </div>
       </div>
     </div>
