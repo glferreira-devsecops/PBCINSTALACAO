@@ -405,11 +405,13 @@ export class AppComponent {
     this.isMenuOpen.update(v => !v);
   }
 
-  private openFaqTimeout: any;
+  private openFaqTimeout?: ReturnType<typeof setTimeout>;
   toggleFaq(index: number): void {
     const currentIndex = this.openFaqIndex();
     
-    clearTimeout(this.openFaqTimeout);
+    if (this.openFaqTimeout) {
+      clearTimeout(this.openFaqTimeout);
+    }
 
     if (currentIndex === index) {
       this.openFaqIndex.set(null);

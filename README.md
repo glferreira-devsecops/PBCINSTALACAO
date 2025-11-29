@@ -9,8 +9,8 @@
 
 <div align="center">
 
-![Angular](https://img.shields.io/badge/Angular-18+-DD0031?style=for-the-badge&logo=angular)
-![TypeScript](https://img.shields.io/badge/TypeScript-5.4+-3178C6?style=for-the-badge&logo=typescript)
+![Angular](https://img.shields.io/badge/Angular-18.1+-DD0031?style=for-the-badge&logo=angular)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.5+-3178C6?style=for-the-badge&logo=typescript)
 ![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-3-38B2AC?style=for-the-badge&logo=tailwind-css)
 ![Vercel Ready](https://img.shields.io/badge/Vercel-Ready-000000?style=for-the-badge&logo=vercel)
 ![Lighthouse Performance](https://img.shields.io/badge/Lighthouse-100-F44336?style=for-the-badge&logo=lighthouse)
@@ -68,8 +68,8 @@ Este projeto utiliza uma stack frontend de ponta, compilada com o Angular CLI, f
 
 | Componente      | Tecnologia                                                                                                 | Justificativa Estratégica                                                                                               |
 | --------------- | ---------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
-| **Framework**   | [**Angular v18+**](https://angular.dev/)                                                                   | Robustez, performance e um ecossistema maduro para aplicações que precisam ser confiáveis e escaláveis.              |
-| **Arquitetura** | **Componentes Standalone**                                                                                 | Elimina a complexidade e o boilerplate dos `NgModules`, resultando em um bundle menor, inicialização mais rápida e componentização simplificada. |
+| **Framework**   | [**Angular v18.1+**](https://angular.dev/)                                                                   | Robustez, performance e um ecossistema maduro para aplicações que precisam ser confiáveis e escaláveis.              |
+| **Arquitetura** | **Standalone & Zoneless**                                                                                 | Elimina a complexidade dos `NgModules` e a sobrecarga do `Zone.js`, resultando em um bundle menor, detecção de mudança mais rápida e componentização simplificada. |
 | **Estado**      | [**Angular Signals**](https://angular.dev/guide/signals)                                                   | Gerenciamento de estado reativo, declarativo e granularmente eficiente, garantindo renderizações mínimas e performance máxima. |
 | **Estilização** | [**Tailwind CSS v3**](https://tailwindcss.com/)                                                            | Framework utility-first que permite o desenvolvimento rápido de interfaces complexas e consistentes, carregado via CDN para simplicidade. |
 | **Imagens**     | [**NgOptimizedImage**](https://angular.dev/guide/image-optimization)                                       | Otimização automática e fundamental de imagens para performance superior e notas perfeitas nos Core Web Vitals.      |
@@ -136,7 +136,7 @@ Cada card recebe a diretiva de animação, mas com um `transition-delay` crescen
 ## Ⅳ. SEO & Performance: A Base para a Visibilidade
 
 A performance não é um recurso, é a base.
--   **Core Web Vitals Otimizados**: O uso de `NgOptimizedImage` e uma arquitetura moderna contribuem para notas excelentes em LCP, CLS e INP.
+-   **Core Web Vitals Otimizados**: O uso de `NgOptimizedImage` e uma arquitetura moderna e zoneless contribuem para notas excelentes em LCP, CLS e INP.
 -   **Schema `JSON-LD` para Rich Snippets**: O `index.html` contém um script `JSON-LD` detalhado do tipo `LocalBusiness`. Isso permite que o Google exiba informações ricas nos resultados de busca (horário, área de serviço, telefone), aumentando a visibilidade e a taxa de cliques.
 -   **Meta Tags Completas**: Tags `title`, `description`, `canonical`, Open Graph e Twitter Cards garantem uma apresentação perfeita em redes sociais e mecanismos de busca.
 
