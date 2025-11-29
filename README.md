@@ -3,7 +3,7 @@
 ![Angular](https://img.shields.io/badge/Angular-18+-DD0031?style=for-the-badge&logo=angular)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.4+-3178C6?style=for-the-badge&logo=typescript)
 ![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-3-38B2AC?style=for-the-badge&logo=tailwind-css)
-![Zero Build](https://img.shields.io/badge/Build-Zero_Config-F7DF1E?style=for-the-badge)
+![Vercel Ready](https://img.shields.io/badge/Vercel-Ready-000000?style=for-the-badge&logo=vercel)
 ![Lighthouse Performance](https://img.shields.io/badge/Lighthouse-100-F44336?style=for-the-badge&logo=lighthouse)
 
 ## 📄 Tabela de Conteúdos
@@ -14,7 +14,7 @@
 4.  [📈 Estratégia de SEO e Performance](#-estratégia-de-seo-e-performance)
 5.  [🔧 Guia de Customização Rápida](#-guia-de-customização-rápida)
 6.  [📂 Anatomia do Projeto](#-anatomia-do-projeto)
-7.  [🏁 Executando o Projeto](#-executando-o-projeto)
+7.  [🚀 Deploying to Vercel](#-deploying-to-vercel)
 
 ---
 
@@ -56,24 +56,11 @@ Este projeto utiliza uma stack frontend serverless e de ponta, focada em perform
 
 ### 1. O Paradigma Zero-Build
 
-Esta arquitetura elimina a necessidade de qualquer ferramenta de build. O `index.html` é o coração do projeto, definindo um **`importmap`** que instrui o navegador sobre como resolver os imports de pacotes em tempo de execução.
-
-```html
-<!-- index.html -->
-<script type="importmap">
-{
-  "imports": {
-    "@angular/core": "https://aistudiocdn.com/@angular/core@^18.0.0/fesm2022/core.mjs",
-    "@angular/common": "https://aistudiocdn.com/@angular/common@^18.0.0/fesm2022/common.mjs",
-    /* ... outras dependências ... */
-  }
-}
-</script>
-```
+Esta arquitetura elimina a necessidade de qualquer ferramenta de build. O `index.html` é o coração do projeto, definindo um **`importmap`** que instrui o navegador sobre como resolver os imports de pacotes em tempo de execução e, agora, contendo a lógica de inicialização da aplicação.
 
 ### 2. Angular Zoneless & Standalone
 
-Em `index.tsx`, a aplicação é inicializada com `provideZoneChangeDetection()`, ativando o modo **Zoneless**. Nesse modo, o Angular não depende mais do `Zone.js` para detectar mudanças, resultando em uma melhoria de performance notável e forçando um padrão de código mais explícito e controlado.
+A aplicação é inicializada com `provideZoneChangeDetection()`, ativando o modo **Zoneless**. Nesse modo, o Angular não depende mais do `Zone.js` para detectar mudanças, resultando em uma melhoria de performance notável e forçando um padrão de código mais explícito e controlado.
 
 ### 3. Estado Reativo com Signals
 
@@ -96,7 +83,7 @@ export class AppComponent {
 
 ### 4. Otimização de Imagens com `NgOptimizedImage`
 
-Todas as tags `<img>` foram substituídas pela diretiva `NgOptimizedImage` (`[ngSrc]`). Isso ativa um conjunto de otimizizações automáticas:
+Todas as tags `<img>` foram substituídas pela diretiva `NgOptimizedImage` (`[ngSrc]`). Isso ativa um conjunto de otimizações automáticas:
 -   **Lazy Loading**: Imagens fora da tela não são carregadas até que o usuário role até elas.
 -   **Prevenção de "Layout Shift"**: Requer `width` e `height`, estabilizando o layout da página.
 -   **Priorização**: A imagem principal na seção "Sobre" usa `priority` para ser carregada o mais rápido possível, otimizando a métrica LCP (Largest Contentful Paint).
@@ -202,8 +189,8 @@ As cores principais podem ser alteradas diretamente no `tailwind.config` dentro 
 
 ```
 .
-├── index.html                 # Ponto de entrada, SEO, CDNs, importmap e estrutura base
-├── index.tsx                  # Lógica de inicialização (bootstrap) da aplicação Angular Zoneless
+├── index.html                 # Ponto de entrada, SEO, CDNs, importmap e lógica de bootstrap
+├── vercel.json                # Configuração de deploy para a Vercel (SPA mode)
 ├── metadata.json              # Metadados do projeto
 ├── README.md                  # Este documento detalhado
 └── src
@@ -214,9 +201,18 @@ As cores principais podem ser alteradas diretamente no `tailwind.config` dentro 
 
 ---
 
-## 🏁 Executando o Projeto
+## 🚀 Deploying to Vercel
 
-Nenhuma instalação ou compilação é necessária.
+Publicar este projeto na Vercel é um processo de "push-to-deploy" extremamente simples.
 
-1.  Clone ou baixe os arquivos do projeto.
-2.  Abra o arquivo `index.html` diretamente em qualquer navegador moderno (Chrome, Firefox, Edge, Safari).
+1.  **Crie um Repositório no GitHub:** Se ainda não o fez, crie um repositório no GitHub e envie os arquivos do projeto para ele.
+2.  **Importe o Projeto na Vercel:**
+    *   Faça login na sua conta Vercel.
+    *   Clique em "Add New..." -> "Project".
+    *   Importe o repositório do GitHub que você acabou de criar.
+3.  **Configure e Faça o Deploy:**
+    *   A Vercel irá detectar automaticamente que é um projeto estático.
+    *   **Nenhuma configuração de build é necessária.** Você pode deixar os campos "Build & Development Settings" vazios.
+    *   Clique em **"Deploy"**.
+
+É isso! Sua aplicação estará online em segundos. A Vercel irá automaticamente re-deployar o site a cada novo push para o seu repositório.

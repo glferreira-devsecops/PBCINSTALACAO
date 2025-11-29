@@ -127,6 +127,20 @@
   }
 }
 </script>
+<script type="module">
+  import { bootstrapApplication } from '@angular/platform-browser';
+  import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
+  import { AppComponent } from './src/app.component';
+
+  const appConfig = {
+    providers: [
+      provideZoneChangeDetection(),
+    ],
+  };
+
+  bootstrapApplication(AppComponent, appConfig)
+    .catch((err) => console.error('Application bootstrap failed:', err));
+</script>
 </head>
 <body class="bg-light text-dark antialiased">
   <app-root></app-root>
