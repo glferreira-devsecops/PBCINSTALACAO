@@ -1,8 +1,8 @@
 
 import { Component, signal, computed, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
-import { AnimateOnScrollDirective } from './animate-on-scroll.directive';
-import * as AppData from './app.data';
+import { AnimateOnScrollDirective } from './animate-on-scroll.directive.ts';
+import * as AppData from './app.data.ts';
 
 @Component({
   selector: 'app-root',
