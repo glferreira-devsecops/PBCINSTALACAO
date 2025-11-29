@@ -14,15 +14,13 @@
           "builder": "@angular-devkit/build-angular:application",
           "options": {
             "outputPath": "dist/pbc-instalacao",
-            "index": "src/index.html",
+            "index": "index.html",
             "browser": "src/main.ts",
             "polyfills": [
               "zone.js"
             ],
             "tsConfig": "tsconfig.app.json",
-            "assets": [
-              "src/assets"
-            ],
+            "assets": [],
             "styles": [
               "src/styles.css"
             ],
