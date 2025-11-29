@@ -111,40 +111,25 @@ No template, acessamos tudo através de uma única variável `vm`:
 </header>
 ```
 
-### 2. Animações Performáticas com `IntersectionObserver`
+### 2. Animações Orquestradas e Performáticas
 
-A diretiva `src/animate-on-scroll.directive.ts` é um exemplo de otimização de performance.
+A experiência do usuário é elevada através de uma estratégia de animação sofisticada que combina performance e elegância.
 
-> **Por que `IntersectionObserver`?** Escutar eventos de `scroll` (`(window:scroll)`) pode disparar centenas de vezes por segundo, sobrecarregando a thread principal do navegador e causando "jank" (travamentos). A API `IntersectionObserver` delega essa tarefa ao navegador, que a executa de forma otimizada e notifica nossa aplicação apenas quando o elemento entra (ou sai) da tela. É a maneira moderna e correta de implementar animações de "scroll".
+> **Por que `IntersectionObserver`?** Escutar eventos de `scroll` (`(window:scroll)`) pode sobrecarregar a thread principal do navegador. A API `IntersectionObserver` delega essa tarefa ao navegador, que a executa de forma otimizada e notifica nossa aplicação apenas quando o elemento entra na tela. É a maneira moderna e correta de implementar animações de "scroll".
 
-```typescript
-// src/animate-on-scroll.directive.ts
-@Directive({
-  selector: '[appAnimateOnScroll]',
-  standalone: true,
-})
-export class AnimateOnScrollDirective {
-  private readonly elementRef = inject(ElementRef);
+A diretiva `src/animate-on-scroll.directive.ts` implementa essa API. No template, nós a combinamos com uma técnica de **animação em cascata (staggering)** para um efeito premium:
 
-  constructor() {
-    // Executa após a primeira renderização do cliente
-    afterNextRender(() => {
-      const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-          // Se o elemento está visível
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-            // Opcional: para de observar após a primeira animação
-            observer.unobserve(entry.target); 
-          }
-        });
-      }, { threshold: 0.1 }); // Dispara quando 10% do elemento está visível
-      
-      observer.observe(this.elementRef.nativeElement);
-    });
-  }
+```html
+<!-- Exemplo: Cards de Serviço -->
+@for (service of vm.services; track service.title; let i = $index) {
+  <div class="group ..." 
+       appAnimateOnScroll
+       [style.transition-delay]="i * 150 + 'ms'">
+    <!-- ... conteúdo do card ... -->
+  </div>
 }
 ```
+Cada card recebe a diretiva de animação, mas com um `transition-delay` crescente baseado em seu índice no loop. Isso faz com que eles apareçam em uma sequência suave e coreografada, em vez de todos de uma vez, guiando o olhar do usuário de forma natural.
 
 ---
 
@@ -237,7 +222,7 @@ A nova seção agora está integrada à navegação e ao scroll spy automaticame
 └── src
     ├── assets/                # Imagens, fontes e outros assets estáticos
     ├── main.ts                # Arquivo que inicializa (bootstrap) a aplicação Angular
-    ├── styles.css             # Estilos globais (usado minimamente)
+    ├── styles.css             # Estilos globais e definições de animação
     ├── app.component.ts       # O ÚNICO COMPONENTE. Contém toda a lógica e o template HTML inline.
     ├── app.data.ts            # O "MINI-CMS". Centraliza todo o conteúdo de texto e dados.
     └── animate-on-scroll.directive.ts # Diretiva para animações de scroll performáticas.

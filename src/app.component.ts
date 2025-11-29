@@ -97,10 +97,10 @@ import * as AppData from './app.data';
   <!-- HERO -->
   <section id="hero" class="hero relative min-h-screen flex items-center text-white overflow-hidden">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
-      <h1 class="text-5xl md:text-7xl font-black mb-4 leading-tight tracking-tighter">Clima Perfeito no Rio. Garantido.</h1>
-      <p class="text-xl md:text-2xl mb-4 max-w-3xl mx-auto opacity-90">{{ vm.company.coverage }}</p>
-      <p class="text-lg md:text-xl mb-10 max-w-3xl mx-auto opacity-80">A taxa de visita é abonada com a aprovação do serviço.</p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <h1 class="text-5xl md:text-7xl font-black mb-4 leading-tight tracking-tighter animate-fade-in-up">Clima Perfeito no Rio. Garantido.</h1>
+      <p class="text-xl md:text-2xl mb-4 max-w-3xl mx-auto opacity-90 animate-fade-in-up animate-delay-200">{{ vm.company.coverage }}</p>
+      <p class="text-lg md:text-xl mb-10 max-w-3xl mx-auto opacity-80 animate-fade-in-up animate-delay-400">A taxa de visita é abonada com a aprovação do serviço.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up animate-delay-600">
         <a [href]="vm.whatsapp.normal" target="_blank" class="bg-accent text-dark font-black text-lg py-5 px-10 rounded-xl hover:scale-105 transition-transform duration-200 shadow-2xl">
           SOLICITAR ORÇAMENTO
         </a>
@@ -112,8 +112,10 @@ import * as AppData from './app.data';
   <section id="trust" class="bg-light border-b border-gray-200">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center py-8">
-        @for (signal of vm.trustSignals; track signal.text) {
-          <div class="flex flex-col sm:flex-row items-center justify-center gap-3 text-gray-600" appAnimateOnScroll>
+        @for (signal of vm.trustSignals; track signal.text; let i = $index) {
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-3 text-gray-600" 
+               appAnimateOnScroll 
+               [style.transition-delay]="i * 100 + 'ms'">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-primary">
               <path stroke-linecap="round" stroke-linejoin="round" [attr.d]="signal.icon" />
             </svg>
@@ -132,8 +134,10 @@ import * as AppData from './app.data';
         <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">Do projeto à manutenção, garantimos seu conforto o ano todo.</p>
       </div>
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        @for (service of vm.services; track service.title) {
-          <div class="group bg-light rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300" appAnimateOnScroll>
+        @for (service of vm.services; track service.title; let i = $index) {
+          <div class="group bg-light rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl" 
+               appAnimateOnScroll
+               [style.transition-delay]="i * 150 + 'ms'">
             <div class="overflow-hidden">
               <img [ngSrc]="service.image" [alt]="service.title" class="h-56 w-full object-cover group-hover:scale-110 transition-transform duration-500" width="600" height="400">
             </div>
@@ -160,8 +164,10 @@ import * as AppData from './app.data';
         <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">Do seu contato ao conforto total em 4 passos simples e transparentes.</p>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-16">
-        @for (step of vm.processSteps; track step.title) {
-          <div class="flex flex-col items-center text-center" appAnimateOnScroll>
+        @for (step of vm.processSteps; track step.title; let i = $index) {
+          <div class="flex flex-col items-center text-center" 
+               appAnimateOnScroll
+               [style.transition-delay]="i * 100 + 'ms'">
             <div class="flex items-center justify-center w-24 h-24 bg-white rounded-full border-4 border-primary shadow-lg">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12 text-primary">
                 <path stroke-linecap="round" stroke-linejoin="round" [attr.d]="step.icon" />
@@ -191,7 +197,7 @@ import * as AppData from './app.data';
             Fale com um Especialista
           </a>
         </div>
-        <div class="order-1 lg:order-2" appAnimateOnScroll>
+        <div class="order-1 lg:order-2" appAnimateOnScroll [style.transition-delay]="'150ms'">
           <img ngSrc="assets/images/arcond4.jpg" alt="Técnico da PBC Instalação RJ" class="rounded-xl shadow-2xl w-full" width="1260" height="750" priority>
         </div>
       </div>
@@ -206,8 +212,10 @@ import * as AppData from './app.data';
         <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">A maior prova da nossa qualidade é a satisfação de quem nos contrata.</p>
       </div>
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        @for (t of vm.testimonials; track t.name) {
-          <div class="bg-white p-8 rounded-xl shadow-lg flex flex-col transition-transform duration-300 hover:-translate-y-2" appAnimateOnScroll>
+        @for (t of vm.testimonials; track t.name; let i = $index) {
+          <div class="bg-white p-8 rounded-xl shadow-lg flex flex-col transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl" 
+               appAnimateOnScroll
+               [style.transition-delay]="i * 150 + 'ms'">
             <div class="flex-grow">
               <div class="flex text-yellow-400 mb-4">
                 @for (star of t.starArray; track $index) {
@@ -243,11 +251,11 @@ import * as AppData from './app.data';
   <!-- FAQ -->
   <section id="faq" class="py-24 lg:py-32 bg-white">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16" appAnimateOnScroll>
-        <h2 class="text-4xl lg:text-5xl font-black text-primary">Ainda tem Dúvidas?</h2>
-        <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">Respostas rápidas para as perguntas mais comuns. Se a sua não estiver aqui, fale conosco!</p>
-      </div>
       <div class="max-w-4xl mx-auto" appAnimateOnScroll>
+        <div class="text-center mb-16">
+          <h2 class="text-4xl lg:text-5xl font-black text-primary">Ainda tem Dúvidas?</h2>
+          <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">Respostas rápidas para as perguntas mais comuns. Se a sua não estiver aqui, fale conosco!</p>
+        </div>
         <div class="border border-gray-200 rounded-xl shadow-sm bg-light">
           @for (faq of vm.faqs; track $index; let isLast = $last) {
             <div [class.border-b]="!isLast" [class.border-gray-200]="!isLast">
