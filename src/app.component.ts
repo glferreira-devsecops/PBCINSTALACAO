@@ -152,8 +152,31 @@ import * as AppData from './app.data';
     </div>
   </section>
 
+  <!-- PROCESS -->
+  <section id="process" class="py-24 lg:py-32 bg-light">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-20" appAnimateOnScroll>
+        <h2 class="text-4xl lg:text-5xl font-black text-primary">Como Funciona</h2>
+        <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">Do seu contato ao conforto total em 4 passos simples e transparentes.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-16">
+        @for (step of vm.processSteps; track step.title) {
+          <div class="flex flex-col items-center text-center" appAnimateOnScroll>
+            <div class="flex items-center justify-center w-24 h-24 bg-white rounded-full border-4 border-primary shadow-lg">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12 text-primary">
+                <path stroke-linecap="round" stroke-linejoin="round" [attr.d]="step.icon" />
+              </svg>
+            </div>
+            <h3 class="mt-6 text-2xl font-bold">{{ step.title }}</h3>
+            <p class="mt-2 text-gray-600">{{ step.description }}</p>
+          </div>
+        }
+      </div>
+    </div>
+  </section>
+
   <!-- ABOUT -->
-  <section id="about" class="py-24 lg:py-32 bg-light">
+  <section id="about" class="py-24 lg:py-32 bg-white">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid lg:grid-cols-2 gap-16 items-center">
         <div class="order-2 lg:order-1" appAnimateOnScroll>
@@ -176,7 +199,7 @@ import * as AppData from './app.data';
   </section>
 
   <!-- TESTIMONIALS -->
-  <section id="testimonials" class="py-24 lg:py-32 bg-white">
+  <section id="testimonials" class="py-24 lg:py-32 bg-light">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16" appAnimateOnScroll>
         <h2 class="text-4xl lg:text-5xl font-black text-primary">Quem Confia, Recomenda</h2>
@@ -184,7 +207,7 @@ import * as AppData from './app.data';
       </div>
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         @for (t of vm.testimonials; track t.name) {
-          <div class="bg-light p-8 rounded-xl shadow-lg flex flex-col transition-transform duration-300 hover:-translate-y-2" appAnimateOnScroll>
+          <div class="bg-white p-8 rounded-xl shadow-lg flex flex-col transition-transform duration-300 hover:-translate-y-2" appAnimateOnScroll>
             <div class="flex-grow">
               <div class="flex text-yellow-400 mb-4">
                 @for (star of t.starArray; track $index) {
@@ -218,14 +241,14 @@ import * as AppData from './app.data';
   </section>
 
   <!-- FAQ -->
-  <section id="faq" class="py-24 lg:py-32 bg-light">
+  <section id="faq" class="py-24 lg:py-32 bg-white">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16" appAnimateOnScroll>
         <h2 class="text-4xl lg:text-5xl font-black text-primary">Ainda tem Dúvidas?</h2>
         <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">Respostas rápidas para as perguntas mais comuns. Se a sua não estiver aqui, fale conosco!</p>
       </div>
       <div class="max-w-4xl mx-auto" appAnimateOnScroll>
-        <div class="border border-gray-200 rounded-xl shadow-sm bg-white">
+        <div class="border border-gray-200 rounded-xl shadow-sm bg-light">
           @for (faq of vm.faqs; track $index; let isLast = $last) {
             <div [class.border-b]="!isLast" [class.border-gray-200]="!isLast">
               <button (click)="toggleFaq($index)" [attr.aria-expanded]="vm.openFaqIndex === $index" [attr.aria-controls]="'faq-answer-' + $index"
@@ -319,6 +342,7 @@ export class AppComponent {
   readonly sections = AppData.sections;
   readonly trustSignals = AppData.trustSignals;
   readonly services = AppData.services;
+  readonly processSteps = AppData.processSteps;
   readonly testimonials = AppData.testimonials.map(testimonial => ({
     ...testimonial,
     starArray: Array(testimonial.rating).fill(0)
@@ -373,8 +397,20 @@ export class AppComponent {
     this.isMenuOpen.update(v => !v);
   }
 
+  private openFaqTimeout: any;
   toggleFaq(index: number): void {
-    this.openFaqIndex.update(currentIndex => currentIndex === index ? null : index);
+    const currentIndex = this.openFaqIndex();
+    
+    clearTimeout(this.openFaqTimeout);
+
+    if (currentIndex === index) {
+      this.openFaqIndex.set(null);
+    } else {
+      this.openFaqIndex.set(null); // Fecha o atual primeiro
+      this.openFaqTimeout = setTimeout(() => {
+        this.openFaqIndex.set(index); // Abre o novo após a animação de fechar
+      }, 500);
+    }
   }
 
   readonly data = computed(() => ({
@@ -389,6 +425,7 @@ export class AppComponent {
     sections: this.sections,
     trustSignals: this.trustSignals,
     services: this.services,
+    processSteps: this.processSteps,
     testimonials: this.testimonials,
     faqs: this.faqs,
     company: this.company,
