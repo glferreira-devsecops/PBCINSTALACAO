@@ -1,6 +1,4 @@
 {
-  "installCommand": "echo 'Skipping install step for zero-build project'",
-  "buildCommand": "echo 'Skipping build step for zero-build project'",
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
   ]
