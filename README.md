@@ -60,7 +60,7 @@ Esta arquitetura elimina a necessidade de qualquer ferramenta de build. O `index
 
 ### 2. Angular Zoneless & Standalone
 
-A aplicação é inicializada com `provideZoneChangeDetection()`, ativando o modo **Zoneless**. Nesse modo, o Angular não depende mais do `Zone.js` para detectar mudanças, resultando em uma melhoria de performance notável e forçando um padrão de código mais explícito e controlado.
+A aplicação é inicializada com `provideZoneChangeDetection({ eventCoalescing: true })`, ativando o modo **Zoneless**. Nesse modo, o Angular não depende mais do `Zone.js` para detectar mudanças, resultando em uma melhoria de performance notável e forçando um padrão de código mais explícito e controlado.
 
 ### 3. Estado Reativo com Signals
 

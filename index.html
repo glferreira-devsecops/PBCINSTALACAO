@@ -134,7 +134,7 @@
 
   const appConfig = {
     providers: [
-      provideZoneChangeDetection(),
+      provideZoneChangeDetection({ eventCoalescing: true }),
     ],
   };
 
