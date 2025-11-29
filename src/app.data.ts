@@ -1,6 +1,6 @@
 // Define interfaces to be shared
 export interface Service { title: string; description: string; image: string; icon: string; }
-export interface Testimonial { name: string; role: string; text: string; photo: string; rating: number; }
+export interface Testimonial { name: string; role: string; text: string; photo: string; rating: number; linkedin?: string; }
 export interface Section { id: string; label: string; }
 export interface TrustSignal { icon: string; text: string; }
 
@@ -51,6 +51,13 @@ export const services: Service[] = [
 
 export const testimonials: Testimonial[] = [
   { name: 'Dr. Roberto Lima', role: 'Clínica Odontológica • Leblon', text: 'A única empresa que conseguiu instalar 12 splits em 2 dias sem interromper nosso atendimento. O nível de organização e limpeza é surreal. São de outro planeta.', photo: 'https://images.pexels.com/photos/5215024/pexels-photo-5215024.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&dpr=2', rating: 5 },
-  { name: 'Fernanda Costa', role: 'Síndica Cond. Vistamar • Niterói', text: 'Depois de anos trocando de empresa, finalmente encontramos a PBC. O laudo do PMOC é impecável e o atendimento é absurdamente rápido. Recomendo para todos os síndicos.', photo: 'https://images.pexels.com/photos/3769021/pexels-photo-3769021.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&dpr=2', rating: 5 },
-  { name: 'Marcelo Borges', role: 'Dono de Loja • Recreio', text: 'Em pleno sábado de 40 graus, meu ar central parou. Achei que ia perder o dia de vendas. Liguei para a PBC e em menos de duas horas o técnico estava aqui e resolveu. Salvaram meu negócio!', photo: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&dpr=2', rating: 5 }
+  { name: 'Fernanda Costa', role: 'Síndica Cond. Vistamar • Niterói', text: 'Depois de anos trocando de empresa, finalmente encontramos a PBC. A comunicação é clara, o serviço é confiável e o atendimento é absurdamente rápido. Recomendo para todos os síndicos.', photo: 'https://images.pexels.com/photos/3769021/pexels-photo-3769021.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&dpr=2', rating: 5 },
+  { 
+    name: 'Gabriel Ferreira', 
+    role: 'FOUNDER at RET TECNOLOGIA', 
+    text: 'Como desenvolvedor, sou exigente com detalhes técnicos. A equipe não só resolveu o problema de gás e fez uma limpeza completa, como deixaram o ar condicionado \'nevando\' de tão forte. Serviço impecável.', 
+    photo: 'https://avatars.githubusercontent.com/u/79963836?v=4', 
+    rating: 5,
+    linkedin: 'https://www.linkedin.com/in/devferreirag'
+  }
 ];
