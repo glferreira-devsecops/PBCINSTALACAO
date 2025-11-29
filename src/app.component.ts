@@ -1,4 +1,5 @@
 
+
 import { Component, signal, computed, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { AnimateOnScrollDirective } from './animate-on-scroll.directive';
@@ -39,7 +40,7 @@ import * as AppData from './app.data';
         }
       </ul>
       <a [href]="vm.whatsapp.normal" target="_blank" class="hidden lg:inline-block bg-accent text-dark font-bold py-3 px-6 rounded-lg hover:bg-accent-dark transition-transform hover:scale-105 shadow-lg">
-        Orçamento Grátis
+        Solicitar Orçamento
       </a>
 
       <!-- Mobile Nav Toggle -->
@@ -80,13 +81,11 @@ import * as AppData from './app.data';
   <section id="hero" class="hero relative min-h-screen flex items-center text-white overflow-hidden">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
       <h1 class="text-5xl md:text-7xl font-black mb-4 leading-tight tracking-tighter">Clima Perfeito no Rio. Garantido.</h1>
-      <p class="text-xl md:text-2xl mb-10 max-w-3xl mx-auto opacity-90">{{ vm.company.coverage }}</p>
+      <p class="text-xl md:text-2xl mb-4 max-w-3xl mx-auto opacity-90">{{ vm.company.coverage }}</p>
+      <p class="text-lg md:text-xl mb-10 max-w-3xl mx-auto opacity-80">A taxa de visita é abonada com a aprovação do serviço.</p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
         <a [href]="vm.whatsapp.normal" target="_blank" class="bg-accent text-dark font-black text-lg py-5 px-10 rounded-xl hover:scale-105 transition-transform duration-200 shadow-2xl">
-          ORÇAMENTO GRÁTIS
-        </a>
-        <a [href]="vm.whatsapp.emergency" target="_blank" class="bg-danger text-white font-black text-lg py-5 px-10 rounded-xl hover:scale-105 transition-transform duration-200 shadow-2xl">
-          EMERGÊNCIA 24h
+          SOLICITAR ORÇAMENTO
         </a>
       </div>
     </div>
@@ -153,7 +152,7 @@ import * as AppData from './app.data';
           </a>
         </div>
         <div class="order-1 lg:order-2">
-          <img ngSrc="https://images.pexels.com/photos/8148386/pexels-photo-8148386.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Técnico da PBC Instalação RJ" class="rounded-xl shadow-2xl w-full" width="1260" height="750" priority>
+          <img ngSrc="https://images.pexels.com/photos/8962453/pexels-photo-8962453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Técnico da PBC Instalação RJ" class="rounded-xl shadow-2xl w-full" width="1260" height="750" priority>
         </div>
       </div>
     </div>
@@ -236,7 +235,7 @@ import * as AppData from './app.data';
   <a [href]="vm.whatsapp.normal" target="_blank"
      class="fixed bottom-4 left-4 right-4 bg-accent text-dark font-black text-center py-4 rounded-full shadow-2xl z-30 lg:hidden animate-pulse text-lg flex items-center justify-center gap-2 hover:scale-105 transition-transform">
     <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.894 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.886-.001 2.269.655 4.398 1.919 6.121l-1.161 4.225 4.273-1.119z"/></svg>
-    ORÇAMENTO GRÁTIS
+    SOLICITAR ORÇAMENTO
   </a>
 </main>
 `
@@ -264,8 +263,7 @@ export class AppComponent {
   );
   
   readonly whatsapp = {
-    normal: computed(() => this.buildWhatsAppLink('Olá PBC! 🌴 Gostaria de um orçamento gratuito para ar condicionado. Pode me ajudar?')),
-    emergency: computed(() => this.buildWhatsAppLink('🚨 EMERGÊNCIA 24H - Meu ar condicionado parou de funcionar! Preciso de um técnico URGENTE!'))
+    normal: computed(() => this.buildWhatsAppLink('Olá PBC! 🌴 Gostaria de solicitar um orçamento para ar condicionado. Pode me ajudar?'))
   };
   
   private buildWhatsAppLink(message: string): string {
@@ -311,8 +309,7 @@ export class AppComponent {
     activeSection: this.activeSectionId(),
     headerClasses: this.headerClasses(),
     whatsapp: {
-        normal: this.whatsapp.normal(),
-        emergency: this.whatsapp.emergency()
+        normal: this.whatsapp.normal()
     },
     sections: this.sections,
     trustSignals: this.trustSignals,
