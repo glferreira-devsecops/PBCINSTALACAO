@@ -12,48 +12,7 @@ import * as AppData from './app.data';
     '(window:scroll)': 'onScroll()',
     '(window:resize)': 'onResize()'
   },
-  styles: [`
-    :host {
-      --primary: #0284c7; /* Sky 600 */
-      --primary-dark: #0369a1; /* Sky 700 */
-      --accent: #2dd4bf; /* Teal 400 */
-      --accent-dark: #14b8a6; /* Teal 500 */
-      --dark: #0f172a; /* Slate 900 */
-      --light: #f8fafc; /* Slate 50 */
-    }
-
-    /* Animation Utilities */
-    .animate-fade-in-up { animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
-    .animate-fade-in-bottom { animation: fadeInBottom 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
-    
-    .animate-delay-200 { animation-delay: 0.2s; }
-    .animate-delay-400 { animation-delay: 0.4s; }
-    .animate-delay-600 { animation-delay: 0.6s; }
-
-    /* Scroll Reveal - Elements start hidden */
-    [appAnimateOnScroll] {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-      will-change: opacity, transform;
-    }
-    
-    /* Scroll Reveal - Elements become visible */
-    [appAnimateOnScroll].is-visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translate3d(0, 30px, 0); }
-      to { opacity: 1; transform: translate3d(0, 0, 0); }
-    }
-    
-    @keyframes fadeInBottom {
-      from { opacity: 0; transform: translate3d(0, 30px, 0) scale(0.9); }
-      to { opacity: 1; transform: translate3d(0, 0, 0) scale(1); }
-    }
-  `],
+  styles: [],
   template: `
 @let vm = data();
 
@@ -144,7 +103,7 @@ import * as AppData from './app.data';
 
 <main role="main">
   <!-- HERO -->
-  <section id="hero" class="hero relative min-h-screen flex items-center text-white overflow-hidden bg-[var(--primary)]">
+  <section id="hero" class="hero relative min-h-screen flex items-center text-white overflow-hidden">
     <!-- Overlay/Background Image placeholder if needed, using primary color for now -->
     <div class="absolute inset-0 bg-gradient-to-br from-[var(--primary-dark)] to-[var(--primary)] opacity-100 z-0"></div>
     
