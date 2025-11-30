@@ -208,7 +208,7 @@ import * as AppData from './app.data';
           </a>
         </div>
         <div class="order-1 lg:order-2" appAnimateOnScroll [style.transition-delay]="'150ms'">
-          <img ngSrc="assets/images/arcond3.webp" alt="Técnico da PBC Instalação RJ realizando manutenção profissional" class="rounded-xl shadow-2xl w-full bg-slate-200" width="1260" height="750" priority>
+          <img ngSrc="assets/images/arcond4.jpg" alt="Técnico da PBC Instalação RJ realizando manutenção profissional" class="rounded-xl shadow-2xl w-full bg-slate-200" width="1260" height="750" priority>
         </div>
       </div>
     </div>
