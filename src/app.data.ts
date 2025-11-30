@@ -85,8 +85,8 @@ export const services: Service[] = [
 ];
 
 export const testimonials: Testimonial[] = [
-  { name: 'Roberto Lima', role: 'Clínica Odontológica • Leblon', text: 'A equipe da PBC foi extremamente profissional. Realizaram a climatização completa da minha clínica com agilidade e discrição, sem qualquer impacto no atendimento aos pacientes. O cuidado com a limpeza foi notável. Recomendo.', photo: 'https://picsum.photos/seed/roberto/200/200', rating: 5 },
-  { name: 'Fernanda Costa', role: 'Síndica Cond. Vistamar • Niterói', text: 'Gerenciar um condomínio exige parceiros de confiança. Com a PBC, temos isso. São pontuais, transparentes no orçamento e o serviço de manutenção preventiva tem sido excelente para evitar problemas maiores. A comunicação via WhatsApp é um grande diferencial.', photo: 'https://picsum.photos/seed/fernanda/200/200', rating: 5 },
+  { name: 'Roberto Lima', role: 'Clínica Odontológica • Leblon', text: 'A equipe da PBC foi extremamente profissional. Realizaram a climatização completa da minha clínica com agilidade e discrição, sem qualquer impacto no atendimento aos pacientes. O cuidado com a limpeza foi notável. Recomendo.', photo: 'https://ui-avatars.com/api/?name=Roberto+Lima&background=004aad&color=fff&size=200', rating: 5 },
+  { name: 'Fernanda Costa', role: 'Síndica Cond. Vistamar • Niterói', text: 'Gerenciar um condomínio exige parceiros de confiança. Com a PBC, temos isso. São pontuais, transparentes no orçamento e o serviço de manutenção preventiva tem sido excelente para evitar problemas maiores. A comunicação via WhatsApp é um grande diferencial.', photo: 'https://ui-avatars.com/api/?name=Fernanda+Costa&background=00d4aa&color=0f172a&size=200', rating: 5 },
   { 
     name: 'Gabriel Ferreira', 
     role: 'FOUNDER at RET TECNOLOGIA', 
