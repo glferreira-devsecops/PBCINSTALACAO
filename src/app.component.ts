@@ -447,7 +447,7 @@ export class AppComponent {
     if (element) {
       const headerOffset = 80;
       const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+      const offsetPosition = elementPosition + window.scrollY - headerOffset; // Usando window.scrollY
       
       window.scrollTo({
         top: offsetPosition,
@@ -506,6 +506,11 @@ export class AppComponent {
       "reviewBody": t.text
     }));
 
+    const areaServedPlaces = company.areaServed.map(area => ({
+      "@type": "Place",
+      "name": area
+    }));
+
     const jsonLd = {
       "@context": "https://schema.org",
       "@graph": [
@@ -521,7 +526,7 @@ export class AppComponent {
             "telephone": `+${company.whatsapp}`,
             "email": company.email,
             "contactType": "Atendimento ao Cliente",
-            "areaServed": company.areaServed[0], // Using first area served for simplicity
+            "areaServed": company.areaServed[0], // Usando a primeira área para o ContactPoint por simplicidade
             "availableLanguage": "Portuguese"
           },
           "founder": {
@@ -572,7 +577,7 @@ export class AppComponent {
           "hasMap": `https://www.google.com/maps/search/?api=1&query=${company.geo.latitude},${company.geo.longitude}`,
           "paymentAccepted": company.paymentAccepted,
           "openingHoursSpecification": company.openingHoursSpecification,
-          "areaServed": company.areaServed,
+          "areaServed": areaServedPlaces, // Agora um array de Place
           "makesOffer": serviceOffers,
           "aggregateRating": {
             "@type": "AggregateRating",

@@ -1,5 +1,6 @@
 import { Directive, ElementRef, inject, afterNextRender } from '@angular/core';
 
+
 @Directive({
   selector: '[appAnimateOnScroll]',
   standalone: true,

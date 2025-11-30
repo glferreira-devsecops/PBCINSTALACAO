@@ -78,22 +78,22 @@ export const brands: Brand[] = [
 
 export const processSteps: ProcessStep[] = [
   {
-    icon: '',
+    icon: 'M2.25 15.75l1.5-1.5 1.5 1.5 1.5-1.5 1.5 1.5 1.5-1.5 1.5 1.5.75-7.5V4.5A2.25 2.25 0 0013.5 2.25H15V.75a.75.75 0 00-1.5 0v1.5H9.75V.75a.75.75 0 00-1.5 0v1.5H6.75A2.25 2.25 0 004.5 4.5v1.242a2.25 2.25 0 00-1.423 1.836l-1.5 6a2.25 2.25 0 002.049 2.572zm1.5-7.5h16.5m-16.5 3h16.5m-16.5 3h16.5', // Calendar icon
     title: 'Contato e Consulta',
     description: 'Você entra em contato e nossa equipe técnica entende sua necessidade para agendar a visita de um especialista.'
   },
   {
-    icon: '',
+    icon: 'M11.354 16.666a2.625 2.625 0 000-3.712L8.91 10.5h11.168a.75.75 0 000-1.5H8.91l2.445-2.444a2.625 2.625 0 00-3.712-3.712l-6.523 6.523a2.625 2.625 0 000 3.712l6.523 6.523a2.625 2.625 0 003.712-3.712z', // Document text icon
     title: 'Orçamento Técnico',
     description: 'O técnico avalia o local, dimensiona a solução ideal e apresenta um orçamento detalhado e 100% transparente.'
   },
   {
-    icon: '',
+    icon: 'M9.594 3.94c.09-.542.56-.94 1.11-.94h2.5c.55 0 1.02.398 1.11.94l.167 1.004h-6.728L9.594 3.94zM19.5 9.75c0 .946-.713 1.706-1.64 1.74l-.94.247c-.573.153-1.047.49-1.378.932l-.847 1.13c-.267.356-.41.764-.41 1.19V19.5a2.25 2.25 0 01-2.25 2.25h-2.5a2.25 2.25 0 01-2.25-2.25V17.5c0-.426-.143-.834-.41-1.19l-.847-1.13c-.33-.441-.804-.778-1.378-.931l-.94-.247C5.213 11.456 4.5 10.706 4.5 9.75V4.5c0-1.15.92-2.126 2.05-2.234L6.75 2.25h10.5l.18.016A2.25 2.25 0 0119.5 4.5v5.25z', // Wrench icon
     title: 'Execução Técnica',
     description: 'Após sua aprovação, executamos o serviço com precisão, seguindo rigorosos padrões de qualidade e segurança.'
   },
   {
-    icon: '',
+    icon: 'M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z', // Check circle icon
     title: 'Pós-Serviço e Garantia',
     description: 'Finalizamos com testes completos e a organização do local. Você recebe sua garantia formal e total tranquilidade.'
   }
