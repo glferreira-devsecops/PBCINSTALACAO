@@ -104,9 +104,6 @@ import * as AppData from './app.data';
 <main role="main">
   <!-- HERO -->
   <section id="hero" class="hero relative min-h-screen flex items-center text-white overflow-hidden">
-    <!-- Overlay/Background Image placeholder if needed, using primary color for now -->
-    <div class="absolute inset-0 bg-gradient-to-br from-[var(--primary-dark)] to-[var(--primary)] opacity-100 z-0"></div>
-    
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
       <h1 class="text-4xl sm:text-5xl md:text-6xl font-black mb-4 leading-tight tracking-tighter animate-fade-in-up">Climatização de Precisão para seu Conforto.</h1>
       <p class="text-lg sm:text-xl md:text-2xl mb-10 max-w-3xl mx-auto opacity-90 animate-fade-in-up animate-delay-200">Soluções completas em instalação e manutenção de ar condicionado no Rio de Janeiro.</p>
