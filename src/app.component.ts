@@ -356,7 +356,8 @@ export class AppComponent {
   private readonly isMenuOpen = signal(false);
   private readonly openFaqIndex = signal<number | null>(null);
   private readonly activeSectionId = signal<string>('hero');
-  private readonly document = inject(DOCUMENT);
+  // FIX: Explicitly type the injected document as `Document` to fix type inference issue.
+  private readonly document: Document = inject(DOCUMENT);
 
   @ViewChild('closeBtn') closeBtn!: ElementRef<HTMLButtonElement>;
 
