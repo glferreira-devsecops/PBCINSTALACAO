@@ -5,6 +5,7 @@ export interface Section { id: string; label: string; }
 export interface TrustSignal { icon: string; text: string; }
 export interface FaqItem { question: string; answer: string; }
 export interface ProcessStep { icon: string; title: string; description: string; }
+export interface Brand { name: string; domain: string; }
 
 export const company = {
   name: 'PBC Instalação RJ',
@@ -30,6 +31,21 @@ export const trustSignals: TrustSignal[] = [
   { icon: 'M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.83-5.83M11.42 15.17l-4.24-4.24 5.83-5.83a2.652 2.652 0 00-3.75-3.75L1.67 11.42c-.99.99-.99 2.6 0 3.59l4.24 4.24c.99.99 2.6.99 3.59 0l1.9-1.9z', text: 'Técnicos Certificados' },
   { icon: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z', text: 'Garantia de 1 Ano na Instalação' },
   { icon: 'M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z', text: 'Atendimento Rápido' }
+];
+
+export const brands: Brand[] = [
+  { name: 'LG', domain: 'lg.com' },
+  { name: 'Samsung', domain: 'samsung.com' },
+  { name: 'Daikin', domain: 'daikin.com' },
+  { name: 'Fujitsu', domain: 'fujitsu.com' },
+  { name: 'Consul', domain: 'consul.com.br' },
+  { name: 'Electrolux', domain: 'electrolux.com' },
+  { name: 'Midea', domain: 'midea.com' },
+  { name: 'Carrier', domain: 'carrier.com' },
+  { name: 'Gree', domain: 'gree.com' },
+  { name: 'Springer', domain: 'springermidea.com.br' },
+  { name: 'Hitachi', domain: 'hitachi.com' },
+  { name: 'Panasonic', domain: 'panasonic.com' },
 ];
 
 export const processSteps: ProcessStep[] = [
@@ -64,12 +80,12 @@ export const services: Service[] = [
   },
   {
     title: 'Manutenção Preventiva',
-    description: 'Realizamos a higienização completa das unidades interna e externa, eliminando ácaros, fungos e bactérias. Essencial para a qualidade do ar, a eficiência do aparelho e a saúde da sua família.',
+    description: 'Um check-up completo para seu sistema. Realizamos a verificação de componentes, limpeza de filtros, medição de pressão e garantimos a máxima eficiência para reduzir custos de energia e prevenir falhas inesperadas.',
     image: 'assets/images/arcond3.webp',
     icon: 'M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z'
   },
   {
-    title: 'Higienização Profissional de Ar Condicionado',
+    title: 'Higienização Profissional',
     description: 'Serviço essencial para remover poeira, ácaros e bactérias, garantindo um ar mais puro e saudável em seu ambiente. Ideal para prevenir alergias e melhorar a eficiência do aparelho.',
     image: 'assets/images/arcond4.jpg',
     icon: 'M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09 3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.898 20.562L16.25 22.5l-.648-1.938a3.375 3.375 0 00-2.456-2.456L11.25 18l1.938-.648a3.375 3.375 0 002.456-2.456L16.25 13l.648 1.938a3.375 3.375 0 002.456 2.456L21.25 18l-1.938.648a3.375 3.375 0 00-2.456 2.456z'

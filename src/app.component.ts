@@ -108,9 +108,12 @@ import * as AppData from './app.data';
       <h1 class="text-4xl sm:text-5xl md:text-6xl font-black mb-4 leading-tight tracking-tighter animate-fade-in-up">Climatização de Precisão para seu Conforto.</h1>
       <p class="text-lg sm:text-xl md:text-2xl mb-10 max-w-3xl mx-auto opacity-90 animate-fade-in-up animate-delay-200">Soluções completas em instalação e manutenção de ar condicionado no Rio de Janeiro.</p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up animate-delay-400">
-        <a [href]="vm.whatsapp.normal" target="_blank" rel="noopener noreferrer" class="bg-[var(--accent)] text-[var(--dark)] font-bold text-lg py-4 px-8 rounded-lg hover:scale-105 transition-transform duration-200 shadow-2xl">
-          SOLICITAR ORÇAMENTO TÉCNICO
+        <a [href]="vm.whatsapp.normal" target="_blank" rel="noopener noreferrer" class="bg-[var(--accent)] text-[var(--dark)] font-bold text-lg py-4 px-8 rounded-lg hover:bg-[var(--accent-dark)] hover:scale-105 transition-all duration-200 shadow-2xl">
+          SOLICITAR ORÇAMENTO
         </a>
+        <button (click)="scrollTo('services')" class="bg-white/10 backdrop-blur-sm border border-white/20 text-white font-bold text-lg py-4 px-8 rounded-lg hover:bg-white/20 transition-colors duration-200">
+          Conhecer Serviços
+        </button>
       </div>
        <p class="text-sm mt-8 max-w-3xl mx-auto opacity-70 animate-fade-in-up animate-delay-600">Custo da visita 100% ABATIDO ao aprovar o serviço.</p>
     </div>
@@ -136,7 +139,7 @@ import * as AppData from './app.data';
   </section>
 
   <!-- SERVICES -->
-  <section id="services" aria-labelledby="services-heading" class="py-24 lg:py-32 bg-white">
+  <section id="services" aria-labelledby="services-heading" class="py-24 lg:py-32 bg-slate-50">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16" appAnimateOnScroll>
         <h2 id="services-heading" class="text-4xl lg:text-5xl font-black text-[var(--primary)]">Nossos Serviços Especializados</h2>
@@ -144,7 +147,7 @@ import * as AppData from './app.data';
       </div>
       <div class="grid md:grid-cols-2 gap-8">
         @for (service of vm.services; track service.title; let i = $index) {
-          <div class="group bg-[var(--light)] rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl" 
+          <div class="group bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl" 
                appAnimateOnScroll
                [style.transition-delay]="i * 150 + 'ms'">
             <div class="overflow-hidden bg-slate-200">
@@ -165,8 +168,28 @@ import * as AppData from './app.data';
     </div>
   </section>
 
+  <!-- BRANDS -->
+  <section id="brands" aria-labelledby="brands-heading" class="py-16 bg-white overflow-x-hidden">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 id="brands-heading" class="text-center text-2xl font-bold text-slate-500 tracking-wider uppercase">Trabalhamos com as Melhores Marcas</h2>
+      <div class="mt-12 relative h-10 flex items-center">
+        <div class="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-white z-10" aria-hidden="true"></div>
+        <div class="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-white z-10" aria-hidden="true"></div>
+        <div class="flex animate-marquee whitespace-nowrap">
+          @for(brand of vm.brands; track brand.name) {
+            <img [src]="'https://logo.clearbit.com/' + brand.domain" [alt]="brand.name + ' logo'" class="h-8 max-w-32 object-contain mx-12 grayscale opacity-70 hover:opacity-100 hover:grayscale-0 transition-all duration-300">
+          }
+          <!-- Duplicate for seamless scroll -->
+          @for(brand of vm.brands; track brand.name) {
+            <img [src]="'https://logo.clearbit.com/' + brand.domain" [alt]="brand.name + ' logo'" class="h-8 max-w-32 object-contain mx-12 grayscale opacity-70 hover:opacity-100 hover:grayscale-0 transition-all duration-300" aria-hidden="true">
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- PROCESS -->
-  <section id="process" aria-labelledby="process-heading" class="py-24 lg:py-32 bg-[var(--light)]">
+  <section id="process" aria-labelledby="process-heading" class="py-24 lg:py-32 bg-slate-50">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-20" appAnimateOnScroll>
         <h2 id="process-heading" class="text-4xl lg:text-5xl font-black text-[var(--primary)]">Nosso Processo: Simples e Eficiente</h2>
@@ -192,7 +215,7 @@ import * as AppData from './app.data';
   </section>
 
   <!-- ABOUT -->
-  <section id="about" aria-labelledby="about-heading" class="py-24 lg:py-32 bg-white">
+  <section id="about" aria-labelledby="about-heading" class="py-24 lg:py-32 bg-[var(--light)]">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid lg:grid-cols-2 gap-16 items-center">
         <div class="order-2 lg:order-1" appAnimateOnScroll>
@@ -215,7 +238,7 @@ import * as AppData from './app.data';
   </section>
 
   <!-- TESTIMONIALS -->
-  <section id="testimonials" aria-labelledby="testimonials-heading" class="py-24 lg:py-32 bg-[var(--light)]">
+  <section id="testimonials" aria-labelledby="testimonials-heading" class="py-24 lg:py-32 bg-white">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16" appAnimateOnScroll>
         <h2 id="testimonials-heading" class="text-4xl lg:text-5xl font-black text-[var(--primary)]">Quem Confia, Recomenda</h2>
@@ -259,14 +282,14 @@ import * as AppData from './app.data';
   </section>
 
   <!-- FAQ -->
-  <section id="faq" aria-labelledby="faq-heading" class="py-24 lg:py-32 bg-white">
+  <section id="faq" aria-labelledby="faq-heading" class="py-24 lg:py-32 bg-[var(--light)]">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
       <div class="max-w-4xl mx-auto" appAnimateOnScroll>
         <div class="text-center mb-16">
           <h2 id="faq-heading" class="text-4xl lg:text-5xl font-black text-[var(--primary)]">Perguntas Frequentes</h2>
           <p class="mt-4 text-lg text-slate-600 max-w-2xl mx-auto">Respostas diretas para as dúvidas mais comuns. A sua não está aqui? Fale conosco.</p>
         </div>
-        <div class="border border-slate-200 rounded-xl shadow-sm bg-[var(--light)]">
+        <div class="border border-slate-200 rounded-xl shadow-sm bg-white">
           @for (faq of vm.faqs; track $index; let isLast = $last) {
             <div [class.border-b]="!isLast" [class.border-slate-200]="!isLast">
               <button (click)="toggleFaq($index)" [attr.aria-expanded]="vm.openFaqIndex === $index" [attr.aria-controls]="'faq-answer-' + $index"
@@ -369,6 +392,7 @@ export class AppComponent {
       company: AppData.company,
       sections: AppData.sections,
       trustSignals: AppData.trustSignals,
+      brands: AppData.brands,
       services: AppData.services,
       processSteps: AppData.processSteps,
       testimonials: AppData.testimonials.map(t => ({
