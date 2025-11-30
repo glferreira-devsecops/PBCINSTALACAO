@@ -38,7 +38,7 @@ import * as AppData from './app.data';
         }
       </ul>
       <a [href]="vm.whatsapp.normal" target="_blank" class="hidden lg:inline-block bg-accent text-dark font-bold py-3 px-6 rounded-lg hover:bg-accent-dark transition-transform hover:scale-105 shadow-lg">
-        Solicitar Orçamento
+        Pedir Orçamento Grátis
       </a>
 
       <!-- Mobile Nav Toggle -->
@@ -88,7 +88,7 @@ import * as AppData from './app.data';
     <a [href]="vm.whatsapp.normal" target="_blank"
        class="mt-auto w-full bg-accent text-dark text-center py-4 rounded-lg font-bold text-lg hover:bg-accent-dark transition-colors duration-200 flex items-center justify-center gap-2">
       <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.894 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.886-.001 2.269.655 4.398 1.919 6.121l-1.161 4.225 4.273-1.119z"/></svg>
-      Solicitar Orçamento
+      Pedir Orçamento Grátis
     </a>
   </div>
 </nav>
@@ -97,12 +97,12 @@ import * as AppData from './app.data';
   <!-- HERO -->
   <section id="hero" class="hero relative min-h-screen flex items-center text-white overflow-hidden">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
-      <h1 class="text-5xl md:text-7xl font-black mb-4 leading-tight tracking-tighter animate-fade-in-up">Clima Perfeito no Rio. Garantido.</h1>
+      <h1 class="text-5xl md:text-7xl font-black mb-4 leading-tight tracking-tighter animate-fade-in-up">Seu Conforto é Nossa Missão.</h1>
       <p class="text-xl md:text-2xl mb-4 max-w-3xl mx-auto opacity-90 animate-fade-in-up animate-delay-200">{{ vm.company.coverage }}</p>
-      <p class="text-lg md:text-xl mb-10 max-w-3xl mx-auto opacity-80 animate-fade-in-up animate-delay-400">Aproveite: a taxa de visita é por nossa conta ao aprovar o orçamento.</p>
+      <p class="text-lg md:text-xl mb-10 max-w-3xl mx-auto opacity-80 animate-fade-in-up animate-delay-400">Taxa de visita GRÁTIS ao aprovar o orçamento. Aproveite!</p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up animate-delay-600">
         <a [href]="vm.whatsapp.normal" target="_blank" class="bg-accent text-dark font-black text-lg py-5 px-10 rounded-xl hover:scale-105 transition-transform duration-200 shadow-2xl">
-          SOLICITAR ORÇAMENTO
+          ORÇAMENTO GRÁTIS VIA WHATSAPP
         </a>
       </div>
     </div>
@@ -130,8 +130,8 @@ import * as AppData from './app.data';
   <section id="services" class="py-24 lg:py-32 bg-white">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16" appAnimateOnScroll>
-        <h2 class="text-4xl lg:text-5xl font-black text-primary">Soluções Completas em Climatização</h2>
-        <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">Do projeto à manutenção, garantimos seu conforto o ano todo.</p>
+        <h2 class="text-4xl lg:text-5xl font-black text-primary">Conforto e Ar Puro o Ano Inteiro</h2>
+        <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">Do projeto à manutenção, garantimos seu bem-estar com excelência técnica.</p>
       </div>
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         @for (service of vm.services; track service.title; let i = $index) {
@@ -160,8 +160,8 @@ import * as AppData from './app.data';
   <section id="process" class="py-24 lg:py-32 bg-light">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-20" appAnimateOnScroll>
-        <h2 class="text-4xl lg:text-5xl font-black text-primary">Como Funciona</h2>
-        <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">Do seu contato ao conforto total em 4 passos simples e transparentes.</p>
+        <h2 class="text-4xl lg:text-5xl font-black text-primary">Seu Conforto em 4 Passos Simples</h2>
+        <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">Do seu contato ao clima perfeito, nosso processo é transparente e sem complicações.</p>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-16">
         @for (step of vm.processSteps; track step.title; let i = $index) {
@@ -186,15 +186,15 @@ import * as AppData from './app.data';
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid lg:grid-cols-2 gap-16 items-center">
         <div class="order-2 lg:order-1" appAnimateOnScroll>
-          <h2 class="text-4xl lg:text-5xl font-black text-primary">Nossa Missão: Sua Tranquilidade</h2>
+          <h2 class="text-4xl lg:text-5xl font-black text-primary">A Tranquilidade de um Serviço Bem-Feito</h2>
           <p class="mt-6 text-lg text-gray-600 leading-relaxed">{{ vm.company.about }}</p>
           <ul class="mt-8 space-y-4 text-lg">
             <li class="flex items-center gap-3"><span class="text-accent font-bold text-2xl">✓</span> Orçamento Rápido e Sem Surpresas</li>
-            <li class="flex items-center gap-3"><span class="text-accent font-bold text-2xl">✓</span> Pontualidade Britânica e Limpeza Pós-serviço</li>
+            <li class="flex items-center gap-3"><span class="text-accent font-bold text-2xl">✓</span> Pontualidade e Limpeza Pós-serviço</li>
             <li class="flex items-center gap-3"><span class="text-accent font-bold text-2xl">✓</span> Peças Originais e Equipamentos de Ponta</li>
           </ul>
            <a [href]="vm.whatsapp.normal" target="_blank" class="mt-10 inline-block bg-primary text-white font-bold py-4 px-8 rounded-lg hover:bg-primary-dark transition-transform hover:scale-105 shadow-lg">
-            Fale com um Especialista
+            Falar com um Especialista
           </a>
         </div>
         <div class="order-1 lg:order-2" appAnimateOnScroll [style.transition-delay]="'150ms'">
@@ -208,8 +208,8 @@ import * as AppData from './app.data';
   <section id="testimonials" class="py-24 lg:py-32 bg-light">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16" appAnimateOnScroll>
-        <h2 class="text-4xl lg:text-5xl font-black text-primary">Quem Confia, Recomenda</h2>
-        <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">A maior prova da nossa qualidade é a satisfação de quem nos contrata.</p>
+        <h2 class="text-4xl lg:text-5xl font-black text-primary">A Satisfação dos Nossos Clientes</h2>
+        <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">A maior prova da nossa qualidade é o reconhecimento de quem confia em nosso trabalho.</p>
       </div>
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         @for (t of vm.testimonials; track t.name; let i = $index) {
@@ -253,8 +253,8 @@ import * as AppData from './app.data';
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
       <div class="max-w-4xl mx-auto" appAnimateOnScroll>
         <div class="text-center mb-16">
-          <h2 class="text-4xl lg:text-5xl font-black text-primary">Ainda tem Dúvidas?</h2>
-          <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">Respostas rápidas para as perguntas mais comuns. Se a sua não estiver aqui, fale conosco!</p>
+          <h2 class="text-4xl lg:text-5xl font-black text-primary">Dúvidas Frequentes</h2>
+          <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">Respostas claras para as perguntas mais comuns. A sua não está aqui? Fale conosco!</p>
         </div>
         <div class="border border-gray-200 rounded-xl shadow-sm bg-light">
           @for (faq of vm.faqs; track $index; let isLast = $last) {
@@ -285,8 +285,8 @@ import * as AppData from './app.data';
   <!-- FINAL CTA -->
   <section class="py-24 cta-bg text-white" appAnimateOnScroll>
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 class="text-4xl lg:text-5xl font-black">Pronto para ter o melhor clima?</h2>
-        <p class="mt-4 text-xl opacity-90 max-w-2xl mx-auto">Fale com um especialista agora e receba seu orçamento gratuito em 5 minutos.</p>
+        <h2 class="text-4xl lg:text-5xl font-black">Pronto Para o Conforto Absoluto?</h2>
+        <p class="mt-4 text-xl opacity-90 max-w-2xl mx-auto">Fale com um especialista agora e receba um orçamento gratuito e sem compromisso.</p>
         <a [href]="vm.whatsapp.normal" target="_blank" class="mt-8 inline-block bg-accent text-dark font-black text-xl py-5 px-12 rounded-xl hover:scale-105 transition-transform duration-200 shadow-2xl">
           FALAR NO WHATSAPP
         </a>
@@ -334,7 +334,7 @@ import * as AppData from './app.data';
   <a [href]="vm.whatsapp.normal" target="_blank"
      class="fixed bottom-4 left-4 right-4 bg-accent text-dark font-black text-center py-4 rounded-full shadow-2xl z-30 lg:hidden animate-pulse text-lg flex items-center justify-center gap-2 hover:scale-105 transition-transform animate-fade-in-bottom">
     <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.894 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.886-.001 2.269.655 4.398 1.919 6.121l-1.161 4.225 4.273-1.119z"/></svg>
-    SOLICITAR ORÇAMENTO
+    ORÇAMENTO GRÁTIS
   </a>
 </main>
 `
@@ -365,7 +365,7 @@ export class AppComponent {
   );
   
   readonly whatsapp = {
-    normal: computed(() => this.buildWhatsAppLink('Olá PBC! 🌴 Gostaria de solicitar um orçamento para ar condicionado. Pode me ajudar?'))
+    normal: computed(() => this.buildWhatsAppLink('Olá, PBC! Vi o site e gostaria de um orçamento grátis para ar condicionado. Pode me ajudar?'))
   };
   
   private buildWhatsAppLink(message: string): string {
