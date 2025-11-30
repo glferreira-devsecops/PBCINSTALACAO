@@ -32,7 +32,7 @@ html {
 .hero { 
   background: 
     linear-gradient(135deg, rgba(0, 40, 100, 0.9), rgba(0, 10, 30, 0.95)), 
-    url('/assets/images/arcond4.webp') center/cover no-repeat;
+    url('/assets/images/arcond3.webp') center/cover no-repeat;
 }
 
 /*
