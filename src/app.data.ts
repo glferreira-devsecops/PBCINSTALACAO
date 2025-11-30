@@ -1,5 +1,3 @@
-
-
 // Define interfaces to be shared
 export interface Service { title: string; description: string; image: string; icon: string; }
 export interface Testimonial { name: string; role: string; text: string; photo: string; rating: number; linkedin?: string; }
