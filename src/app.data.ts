@@ -6,6 +6,11 @@ export interface TrustSignal { icon: string; text: string; }
 export interface FaqItem { question: string; answer: string; }
 export interface ProcessStep { icon: string; title: string; description: string; }
 export interface Brand { name: string; domain: string; }
+export interface Founder { name: string; linkedin: string; }
+export interface Address { addressLocality: string; addressRegion: string; addressCountry: string; }
+export interface Geo { latitude: number; longitude: number; }
+export interface OpeningHoursSpecification { dayOfWeek: string[]; opens: string; closes: string; }
+
 
 export const company = {
   name: 'PBC Instalação RJ',
@@ -13,7 +18,30 @@ export const company = {
   whatsapp: '5521933004776',
   email: 'contato@pbcinstalacaorj.com.br',
   coverage: 'Atendimento especializado em climatização no Rio de Janeiro (Capital), Niterói, Baixada Fluminense e Região dos Lagos.',
-  about: 'Na PBC, nosso compromisso é com a excelência técnica e a total satisfação do cliente. Somos mais que instaladores; somos especialistas em criar o ambiente perfeito. Cada projeto é executado com precisão, desde o cálculo de carga térmica até a utilização de ferramentas de ponta, como a bomba de vácuo, para garantir a máxima eficiência e durabilidade do seu equipamento. Acreditamos que um serviço de qualidade se reflete na atenção aos detalhes e na limpeza pós-trabalho.'
+  about: 'Na PBC, nosso compromisso é com a excelência técnica e a total satisfação do cliente. Somos mais que instaladores; somos especialistas em criar o ambiente perfeito. Cada projeto é executado com precisão, desde o cálculo de carga térmica até a utilização de ferramentas de ponta, como a bomba de vácuo, para garantir a máxima eficiência e durabilidade do seu equipamento. Acreditamos que um serviço de qualidade se reflete na atenção aos detalhes e na limpeza pós-trabalho.',
+  slogan: "Climatização de Precisão para seu Conforto.",
+  founder: {
+    name: "Gabriel Ferreira",
+    linkedin: "https://www.linkedin.com/in/devferreirag"
+  } as Founder,
+  address: {
+    addressLocality: "Rio de Janeiro",
+    addressRegion: "RJ",
+    addressCountry: "BR"
+  } as Address,
+  geo: {
+    latitude: -22.906847,
+    longitude: -43.172897
+  } as Geo,
+  paymentAccepted: ["Dinheiro", "Cartão de Crédito", "PIX"],
+  openingHoursSpecification: [
+    {
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      opens: "08:00",
+      closes: "18:00"
+    }
+  ] as OpeningHoursSpecification[],
+  areaServed: ["Rio de Janeiro", "Niterói", "São Gonçalo", "Baixada Fluminense"]
 } as const;
 
 export const sections: Section[] = [

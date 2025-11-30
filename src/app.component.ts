@@ -379,10 +379,15 @@ export class AppComponent {
   private readonly isMenuOpen = signal(false);
   private readonly openFaqIndex = signal<number | null>(null);
   private readonly activeSectionId = signal<string>('hero');
-  // FIX: Explicitly type the injected document as `Document` to fix type inference issue.
   private readonly document: Document = inject(DOCUMENT);
 
   @ViewChild('closeBtn') closeBtn!: ElementRef<HTMLButtonElement>;
+
+  constructor() {
+    afterNextRender(() => {
+      this.generateJsonLdSchema();
+    });
+  }
 
   readonly data = computed(() => {
     const phone = AppData.company.whatsapp;
@@ -427,9 +432,7 @@ export class AppComponent {
 
   toggleMenu() {
     this.isMenuOpen.update(v => !v);
-    // A11y: Focus management for mobile menu
     if (this.isMenuOpen()) {
-      // Small delay to allow element to render/become visible
       setTimeout(() => this.closeBtn?.nativeElement?.focus(), 50);
     }
   }
@@ -461,7 +464,6 @@ export class AppComponent {
       const element = this.document.getElementById(section);
       if (element) {
         const rect = element.getBoundingClientRect();
-        // Check if top of section is within the viewport or close to top
         if (rect.top <= 150 && rect.bottom >= 150) {
           current = section;
           break;
@@ -469,5 +471,135 @@ export class AppComponent {
       }
     }
     this.activeSectionId.set(current);
+  }
+
+  private generateJsonLdSchema() {
+    const company = AppData.company;
+    const services = AppData.services;
+    const faqs = AppData.faqs;
+    const testimonials = AppData.testimonials;
+    
+    const serviceOffers = services.map(service => ({
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "@id": `https://www.pbcinstalacaorj.com.br/#service-${service.title.toLowerCase().replace(/ /g, '-')}`,
+        "name": service.title,
+        "description": service.description,
+        "provider": { "@id": "https://www.pbcinstalacaorj.com.br/#localbusiness" }
+      }
+    }));
+
+    const faqEntities = faqs.map((faq, index) => ({
+      "@type": "Question",
+      "name": faq.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.answer
+      }
+    }));
+
+    const reviewEntities = testimonials.map(t => ({
+      "@type": "Review",
+      "author": { "@type": "Person", "name": t.name },
+      "reviewRating": { "@type": "Rating", "ratingValue": t.rating.toString() },
+      "reviewBody": t.text
+    }));
+
+    const jsonLd = {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://www.pbcinstalacaorj.com.br/#organization",
+          "name": company.name,
+          "url": "https://www.pbcinstalacaorj.com.br/",
+          "logo": "https://www.pbcinstalacaorj.com.br/assets/favicon.svg",
+          "slogan": company.slogan,
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": `+${company.whatsapp}`,
+            "email": company.email,
+            "contactType": "Atendimento ao Cliente",
+            "areaServed": company.areaServed[0], // Using first area served for simplicity
+            "availableLanguage": "Portuguese"
+          },
+          "founder": {
+            "@type": "Person",
+            "name": company.founder.name,
+            "sameAs": company.founder.linkedin
+          }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://www.pbcinstalacaorj.com.br/#website",
+          "url": "https://www.pbcinstalacaorj.com.br/",
+          "name": company.name,
+          "description": "Especialistas em instalação e manutenção de ar condicionado no Rio de Janeiro. Equipe certificada, garantia e atendimento premium.",
+          "publisher": {
+            "@id": "https://www.pbcinstalacaorj.com.br/#organization"
+          },
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": {
+              "@type": "EntryPoint",
+              "urlTemplate": "https://www.pbcinstalacaorj.com.br/?s={search_term_string}"
+            },
+            "query-input": "required name=search_term_string"
+          }
+        },
+        {
+          "@type": "LocalBusiness",
+          "@id": "https://www.pbcinstalacaorj.com.br/#localbusiness",
+          "name": company.name,
+          "image": "https://www.pbcinstalacaorj.com.br/assets/images/arcond4.jpg",
+          "url": "https://www.pbcinstalacaorj.com.br/",
+          "telephone": `+${company.whatsapp}`,
+          "email": company.email,
+          "priceRange": "$$",
+          "description": "Serviço especializado de instalação, manutenção e reparo de ar condicionado no Rio de Janeiro e Niterói, com equipe certificada e garantia de 1 ano na instalação.",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": company.address.addressLocality,
+            "addressRegion": company.address.addressRegion,
+            "addressCountry": company.address.addressCountry
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": company.geo.latitude,
+            "longitude": company.geo.longitude
+          },
+          "hasMap": `https://www.google.com/maps/search/?api=1&query=${company.geo.latitude},${company.geo.longitude}`,
+          "paymentAccepted": company.paymentAccepted,
+          "openingHoursSpecification": company.openingHoursSpecification,
+          "areaServed": company.areaServed,
+          "makesOffer": serviceOffers,
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": testimonials.length > 0 ? (testimonials.reduce((sum, t) => sum + t.rating, 0) / testimonials.length).toString() : "5",
+            "reviewCount": testimonials.length.toString()
+          },
+          "review": reviewEntities
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": faqEntities
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [{
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Início",
+            "item": "https://www.pbcinstalacaorj.com.br/"
+          }]
+        }
+      ]
+    };
+
+    const script = this.document.createElement('script');
+    script.type = 'application/ld+json';
+    script.textContent = JSON.stringify(jsonLd);
+    this.document.head.appendChild(script);
   }
 }
