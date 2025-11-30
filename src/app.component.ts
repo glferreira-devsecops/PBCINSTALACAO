@@ -37,8 +37,8 @@ import * as AppData from './app.data';
           </li>
         }
       </ul>
-      <a [href]="vm.whatsapp.normal" target="_blank" class="hidden lg:inline-block bg-accent text-dark font-bold py-3 px-6 rounded-lg hover:bg-accent-dark transition-transform hover:scale-105 shadow-lg">
-        Pedir Orçamento Grátis
+      <a [href]="vm.whatsapp.normal" target="_blank" rel="noopener noreferrer" class="hidden lg:inline-block bg-accent text-dark font-bold py-3 px-6 rounded-lg hover:bg-accent-dark transition-transform hover:scale-105 shadow-lg">
+        Solicitar Orçamento
       </a>
 
       <!-- Mobile Nav Toggle -->
@@ -85,10 +85,10 @@ import * as AppData from './app.data';
         </li>
       }
     </ul>
-    <a [href]="vm.whatsapp.normal" target="_blank"
+    <a [href]="vm.whatsapp.normal" target="_blank" rel="noopener noreferrer"
        class="mt-auto w-full bg-accent text-dark text-center py-4 rounded-lg font-bold text-lg hover:bg-accent-dark transition-colors duration-200 flex items-center justify-center gap-2">
       <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.894 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.886-.001 2.269.655 4.398 1.919 6.121l-1.161 4.225 4.273-1.119z"/></svg>
-      Pedir Orçamento Grátis
+      Solicitar Orçamento
     </a>
   </div>
 </nav>
@@ -97,12 +97,12 @@ import * as AppData from './app.data';
   <!-- HERO -->
   <section id="hero" class="hero relative min-h-screen flex items-center text-white overflow-hidden">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
-      <h1 class="text-5xl md:text-7xl font-black mb-4 leading-tight tracking-tighter animate-fade-in-up">Seu Conforto é Nossa Missão.</h1>
-      <p class="text-xl md:text-2xl mb-4 max-w-3xl mx-auto opacity-90 animate-fade-in-up animate-delay-200">{{ vm.company.coverage }}</p>
-      <p class="text-lg md:text-xl mb-10 max-w-3xl mx-auto opacity-80 animate-fade-in-up animate-delay-400">Taxa de visita GRÁTIS ao aprovar o orçamento. Aproveite!</p>
+      <h1 class="text-4xl sm:text-5xl md:text-7xl font-black mb-4 leading-tight tracking-tighter animate-fade-in-up">Seu Conforto é Nossa Missão.</h1>
+      <p class="text-lg sm:text-xl md:text-2xl mb-4 max-w-3xl mx-auto opacity-90 animate-fade-in-up animate-delay-200">{{ vm.company.coverage }}</p>
+      <p class="text-base sm:text-lg md:text-xl mb-10 max-w-3xl mx-auto opacity-80 animate-fade-in-up animate-delay-400">Custo da visita 100% ABATIDO ao aprovar o serviço. Fale conosco!</p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up animate-delay-600">
-        <a [href]="vm.whatsapp.normal" target="_blank" class="bg-accent text-dark font-black text-lg py-5 px-10 rounded-xl hover:scale-105 transition-transform duration-200 shadow-2xl">
-          ORÇAMENTO GRÁTIS VIA WHATSAPP
+        <a [href]="vm.whatsapp.normal" target="_blank" rel="noopener noreferrer" class="bg-accent text-dark font-black text-lg py-5 px-10 rounded-xl hover:scale-105 transition-transform duration-200 shadow-2xl">
+          SOLICITAR ORÇAMENTO RÁPIDO
         </a>
       </div>
     </div>
@@ -113,7 +113,7 @@ import * as AppData from './app.data';
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center py-8">
         @for (signal of vm.trustSignals; track signal.text; let i = $index) {
-          <div class="flex flex-col sm:flex-row items-center justify-center gap-3 text-gray-600" 
+          <div class="flex flex-col md:flex-row items-center justify-center gap-3 text-gray-600" 
                appAnimateOnScroll 
                [style.transition-delay]="i * 100 + 'ms'">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-primary">
@@ -193,7 +193,7 @@ import * as AppData from './app.data';
             <li class="flex items-center gap-3"><span class="text-accent font-bold text-2xl">✓</span> Pontualidade e Limpeza Pós-serviço</li>
             <li class="flex items-center gap-3"><span class="text-accent font-bold text-2xl">✓</span> Peças Originais e Equipamentos de Ponta</li>
           </ul>
-           <a [href]="vm.whatsapp.normal" target="_blank" class="mt-10 inline-block bg-primary text-white font-bold py-4 px-8 rounded-lg hover:bg-primary-dark transition-transform hover:scale-105 shadow-lg">
+           <a [href]="vm.whatsapp.normal" target="_blank" rel="noopener noreferrer" class="mt-10 inline-block bg-primary text-white font-bold py-4 px-8 rounded-lg hover:bg-primary-dark transition-transform hover:scale-105 shadow-lg">
             Falar com um Especialista
           </a>
         </div>
@@ -286,8 +286,8 @@ import * as AppData from './app.data';
   <section class="py-24 cta-bg text-white" appAnimateOnScroll>
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h2 class="text-4xl lg:text-5xl font-black">Pronto Para o Conforto Absoluto?</h2>
-        <p class="mt-4 text-xl opacity-90 max-w-2xl mx-auto">Fale com um especialista agora e receba um orçamento gratuito e sem compromisso.</p>
-        <a [href]="vm.whatsapp.normal" target="_blank" class="mt-8 inline-block bg-accent text-dark font-black text-xl py-5 px-12 rounded-xl hover:scale-105 transition-transform duration-200 shadow-2xl">
+        <p class="mt-4 text-xl opacity-90 max-w-2xl mx-auto">Fale com um especialista agora e receba um orçamento detalhado e sem compromisso.</p>
+        <a [href]="vm.whatsapp.normal" target="_blank" rel="noopener noreferrer" class="mt-8 inline-block bg-accent text-dark font-black text-xl py-5 px-12 rounded-xl hover:scale-105 transition-transform duration-200 shadow-2xl">
           FALAR NO WHATSAPP
         </a>
     </div>
@@ -331,10 +331,10 @@ import * as AppData from './app.data';
   </footer>
 
   <!-- Floating Mobile CTA -->
-  <a [href]="vm.whatsapp.normal" target="_blank"
+  <a [href]="vm.whatsapp.normal" target="_blank" rel="noopener noreferrer"
      class="fixed bottom-4 left-4 right-4 bg-accent text-dark font-black text-center py-4 rounded-full shadow-2xl z-30 lg:hidden animate-pulse text-lg flex items-center justify-center gap-2 hover:scale-105 transition-transform animate-fade-in-bottom">
     <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.894 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.886-.001 2.269.655 4.398 1.919 6.121l-1.161 4.225 4.273-1.119z"/></svg>
-    ORÇAMENTO GRÁTIS
+    SOLICITAR ORÇAMENTO
   </a>
 </main>
 `
@@ -365,7 +365,7 @@ export class AppComponent {
   );
   
   readonly whatsapp = {
-    normal: computed(() => this.buildWhatsAppLink('Olá, PBC! Vi o site e gostaria de um orçamento grátis para ar condicionado. Pode me ajudar?'))
+    normal: computed(() => this.buildWhatsAppLink('Olá, PBC! Vi o site e gostaria de solicitar um orçamento para ar condicionado. Pode me ajudar?'))
   };
   
   private buildWhatsAppLink(message: string): string {
@@ -405,22 +405,8 @@ export class AppComponent {
     this.isMenuOpen.update(v => !v);
   }
 
-  private openFaqTimeout?: ReturnType<typeof setTimeout>;
   toggleFaq(index: number): void {
-    const currentIndex = this.openFaqIndex();
-    
-    if (this.openFaqTimeout) {
-      clearTimeout(this.openFaqTimeout);
-    }
-
-    if (currentIndex === index) {
-      this.openFaqIndex.set(null);
-    } else {
-      this.openFaqIndex.set(null); // Fecha o atual primeiro
-      this.openFaqTimeout = setTimeout(() => {
-        this.openFaqIndex.set(index); // Abre o novo após a animação de fechar
-      }, 500);
-    }
+    this.openFaqIndex.update(current => current === index ? null : index);
   }
 
   readonly data = computed(() => ({
