@@ -142,7 +142,7 @@ import * as AppData from './app.data';
         <h2 id="services-heading" class="text-4xl lg:text-5xl font-black text-[var(--primary)]">Nossos Serviços Especializados</h2>
         <p class="mt-4 text-lg text-slate-600 max-w-3xl mx-auto">Oferecemos soluções completas para garantir a performance e a longevidade do seu sistema de climatização.</p>
       </div>
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div class="grid md:grid-cols-2 gap-8">
         @for (service of vm.services; track service.title; let i = $index) {
           <div class="group bg-[var(--light)] rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl" 
                appAnimateOnScroll
