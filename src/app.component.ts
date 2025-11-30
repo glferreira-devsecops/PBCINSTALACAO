@@ -99,7 +99,7 @@ import * as AppData from './app.data';
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
       <h1 class="text-5xl md:text-7xl font-black mb-4 leading-tight tracking-tighter animate-fade-in-up">Clima Perfeito no Rio. Garantido.</h1>
       <p class="text-xl md:text-2xl mb-4 max-w-3xl mx-auto opacity-90 animate-fade-in-up animate-delay-200">{{ vm.company.coverage }}</p>
-      <p class="text-lg md:text-xl mb-10 max-w-3xl mx-auto opacity-80 animate-fade-in-up animate-delay-400">A taxa de visita é abonada com a aprovação do serviço.</p>
+      <p class="text-lg md:text-xl mb-10 max-w-3xl mx-auto opacity-80 animate-fade-in-up animate-delay-400">Aproveite: a taxa de visita é por nossa conta ao aprovar o orçamento.</p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up animate-delay-600">
         <a [href]="vm.whatsapp.normal" target="_blank" class="bg-accent text-dark font-black text-lg py-5 px-10 rounded-xl hover:scale-105 transition-transform duration-200 shadow-2xl">
           SOLICITAR ORÇAMENTO
@@ -189,9 +189,9 @@ import * as AppData from './app.data';
           <h2 class="text-4xl lg:text-5xl font-black text-primary">Nossa Missão: Sua Tranquilidade</h2>
           <p class="mt-6 text-lg text-gray-600 leading-relaxed">{{ vm.company.about }}</p>
           <ul class="mt-8 space-y-4 text-lg">
-            <li class="flex items-center gap-3"><span class="text-accent font-bold text-2xl">✓</span> Orçamento Rápido e Sem Compromisso</li>
-            <li class="flex items-center gap-3"><span class="text-accent font-bold text-2xl">✓</span> Pontualidade e Limpeza Pós-serviço</li>
-            <li class="flex items-center gap-3"><span class="text-accent font-bold text-2xl">✓</span> Peças Originais e Ferramentas Modernas</li>
+            <li class="flex items-center gap-3"><span class="text-accent font-bold text-2xl">✓</span> Orçamento Rápido e Sem Surpresas</li>
+            <li class="flex items-center gap-3"><span class="text-accent font-bold text-2xl">✓</span> Pontualidade Britânica e Limpeza Pós-serviço</li>
+            <li class="flex items-center gap-3"><span class="text-accent font-bold text-2xl">✓</span> Peças Originais e Equipamentos de Ponta</li>
           </ul>
            <a [href]="vm.whatsapp.normal" target="_blank" class="mt-10 inline-block bg-primary text-white font-bold py-4 px-8 rounded-lg hover:bg-primary-dark transition-transform hover:scale-105 shadow-lg">
             Fale com um Especialista
